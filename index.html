@@ -282,8 +282,6 @@ a{color:inherit;text-decoration:none;}
 .hero-inner{
   position:relative;z-index:2;
   width:100%;
-  /* NO max-width — hero goes full width on desktop */
-  margin:0 auto;
   padding:40px 16px 90px;
   display:flex;
   flex-direction:column;
@@ -291,16 +289,17 @@ a{color:inherit;text-decoration:none;}
   box-sizing:border-box;
 }
 
-/* Tablet: start grid layout */
+/* Tablet: 2-column grid — full width, fixed gutters */
 @media(min-width:900px){
   .hero-inner{
     display:grid;
-    grid-template-columns:1fr 420px;
-    gap:48px;
+    grid-template-columns:1fr 400px;
+    gap:40px;
     align-items:center;
-    padding:72px 5% 64px;
-    max-width:1400px;
-    margin:0 auto;
+    padding:64px 48px 56px;
+    /* No max-width, no centering — content goes full width */
+    max-width:none;
+    margin:0;
   }
 }
 
@@ -890,20 +889,7 @@ a{color:inherit;text-decoration:none;}
   text-transform:uppercase;
 }
 
-/* client quote strip */
-.client-quote-strip{
-  background:var(--dark);
-  border-radius:10px;
-  padding:24px 28px;
-  margin-bottom:24px;
-  text-align:center;
-}
-.cqs-stars{font-size:16px;letter-spacing:3px;color:var(--gold);margin-bottom:10px;}
-.cqs-text{
-  font-size:14.5px;color:rgba(255,255,255,.78);
-  line-height:1.7;font-style:italic;margin-bottom:10px;
-}
-.cqs-author{font-size:12px;font-weight:700;color:rgba(255,255,255,.35);}
+
 
 /* ─── CAPABILITIES ───────────────────────── */
 .cap-sec{background:var(--bg2);border-top:1.5px solid var(--border2);border-bottom:1.5px solid var(--border2);}
@@ -1090,51 +1076,25 @@ a{color:inherit;text-decoration:none;}
 
 /* IMAGE logo cards */
 
-.plogo-card{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
-  height:52px;min-width:80px;
-  padding:0 14px;
+/* platform text pill — no images */
+.ptxt-pill{
+  display:inline-flex;align-items:center;
+  height:36px;padding:0 16px;
   background:#fff;
   border:1.5px solid var(--border2);
-  border-radius:6px;
+  border-radius:4px;
   flex-shrink:0;
-  transition:border-color .2s,box-shadow .2s;
-  cursor:pointer;
+  font-size:12.5px;font-weight:700;color:var(--ink2);
+  white-space:nowrap;
   text-decoration:none;
+  transition:border-color .15s,color .15s,background .15s;
 }
-.plogo-card:hover{
-  border-color:var(--gold);
-  box-shadow:0 2px 12px rgba(240,165,0,.15);
-}
-.plogo-card img{
-  height:20px;
-  width:auto;
-  max-width:80px;
-  object-fit:contain;
-  display:block;
-  transition:opacity .2s;
-}
-.plogo-card:hover img{opacity:1;}
-.plogo-name{
-  font-size:9px;font-weight:700;color:var(--t3);
-  white-space:nowrap;letter-spacing:.03em;
-  line-height:1;
+.ptxt-pill:hover{
+  border-color:var(--gold);color:var(--gold);
+  background:var(--goldbg);
 }
 
-/* TEXT pill platforms */
-.plogo-pill{
-  display:inline-flex;align-items:center;
-  height:36px;padding:0 14px;
-  background:var(--bg2);
-  border:1.5px solid var(--border2);
-  border-radius:6px;
-  font-size:11.5px;font-weight:700;color:var(--ink2);
-  white-space:nowrap;flex-shrink:0;
-  transition:background .15s,border-color .15s,color .15s;
-}
-.plogo-pill:hover{
-  background:var(--goldbg);border-color:var(--gold);color:#8a5c00;
-}
+
 
 /* RIGHT BADGE */
 .platform-badge-col{flex-shrink:0;}
@@ -1167,8 +1127,20 @@ a{color:inherit;text-decoration:none;}
   cursor:pointer;
 }
 .prod-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 28px rgba(240,165,0,.14);}
-.prod-img-wrap{position:relative;overflow:hidden;}
-.prod-img-wrap img{transition:transform .3s;}
+.prod-img-wrap{
+  position:relative;overflow:hidden;
+  background:#f8f8f8;
+  height:200px;
+  display:flex;align-items:center;justify-content:center;
+}
+.prod-img-wrap img{
+  width:100%;height:200px;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+  transition:transform .3s;
+  padding:8px;
+}
 .prod-card:hover .prod-img-wrap img{transform:scale(1.04);}
 .prod-zoom-hint{
   position:absolute;top:8px;right:8px;
@@ -1544,7 +1516,7 @@ a{color:inherit;text-decoration:none;}
 
   /* PRODUCTS */
   .prod-grid{grid-template-columns:1fr 1fr;gap:8px;}
-  .prod-img-wrap img{height:110px;}
+  .prod-img-wrap img{height:160px;} .prod-img-wrap{height:160px;}
   .prod-body{padding:10px 12px;}
   .prod-body h3{font-size:12.5px;}
   .prod-body p{font-size:11.5px;}
@@ -1666,6 +1638,216 @@ a{color:inherit;text-decoration:none;}
   .topbar{display:none;}
 }
 
+
+/* ─── INSTAGRAM GALLERY SECTION ────────── */
+.ig-sec{
+  background:#fff;
+  border-top:1.5px solid var(--border2);
+  padding:52px 0 0;
+  overflow:hidden;
+}
+.ig-header{
+  text-align:center;
+  padding:0 24px 28px;
+}
+.ig-header .lbl{margin-bottom:6px;}
+.ig-header .h2{margin-bottom:6px;}
+.ig-header .sub{font-size:14px;}
+
+/* horizontal scroll strip */
+.ig-strip-wrap{
+  position:relative;
+  overflow:hidden;
+}
+.ig-strip-fade-l,.ig-strip-fade-r{
+  position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none;
+}
+.ig-strip-fade-l{left:0;background:linear-gradient(to right,#fff,transparent);}
+.ig-strip-fade-r{right:0;background:linear-gradient(to left,#fff,transparent);}
+
+.ig-strip{
+  display:flex;
+  gap:6px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:0 60px 16px;
+  cursor:grab;
+}
+.ig-strip:active{cursor:grabbing;}
+.ig-strip::-webkit-scrollbar{display:none;}
+
+.ig-thumb{
+  flex-shrink:0;
+  width:200px;height:200px;
+  border-radius:6px;overflow:hidden;
+  scroll-snap-align:start;
+  cursor:zoom-in;
+  position:relative;
+  background:#f0ede8;
+}
+.ig-thumb img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .3s;
+}
+.ig-thumb:hover img{transform:scale(1.05);}
+.ig-thumb-overlay{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,.35);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .2s;
+}
+.ig-thumb:hover .ig-thumb-overlay{opacity:1;}
+.ig-thumb-overlay svg{color:#fff;}
+
+/* view more button */
+.ig-viewmore-wrap{
+  text-align:center;
+  padding:24px 24px 48px;
+}
+.ig-viewmore-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,#f0a500,#ffc940);
+  color:#000;font-size:15px;font-weight:900;
+  padding:14px 36px;border-radius:50px;
+  border:none;cursor:pointer;
+  font-family:'Roboto',Arial,sans-serif;
+  box-shadow:0 4px 20px rgba(240,165,0,.4);
+  animation:igGlow 2.5s ease-in-out infinite;
+  transition:transform .15s;
+  text-decoration:none;
+}
+.ig-viewmore-btn:hover{transform:scale(1.04);}
+@keyframes igGlow{
+  0%,100%{box-shadow:0 4px 20px rgba(240,165,0,.4);}
+  50%{box-shadow:0 4px 40px rgba(240,165,0,.8),0 0 0 6px rgba(240,165,0,.15);}
+}
+
+/* ── FULLSCREEN INSTAGRAM LIGHTBOX ── */
+.ig-lightbox{
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(0,0,0,.97);
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+}
+.ig-lightbox.open{display:flex;}
+
+/* Header */
+.ig-lb-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  flex-shrink:0;
+}
+.ig-lb-brand{
+  display:flex;align-items:center;gap:10px;
+  color:#fff;font-size:15px;font-weight:900;
+}
+.ig-lb-brand svg{color:var(--gold);}
+.ig-lb-sub{font-size:12px;color:rgba(255,255,255,.4);margin-top:1px;}
+.ig-lb-follow{
+  display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,#f0a500,#ffc940);
+  color:#000;font-size:12.5px;font-weight:900;
+  padding:8px 18px;border-radius:20px;
+  text-decoration:none;transition:transform .15s;
+}
+.ig-lb-follow:hover{transform:scale(1.04);}
+.ig-lb-close{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  color:#fff;width:38px;height:38px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:background .15s;margin-left:12px;
+  font-size:18px;line-height:1;
+}
+.ig-lb-close:hover{background:rgba(255,255,255,.2);}
+
+/* Video header */
+.ig-lb-video{
+  width:100%;background:#000;
+  position:relative;overflow:hidden;
+  flex-shrink:0;
+  max-height:240px;
+}
+.ig-lb-video video{
+  width:100%;max-height:240px;object-fit:cover;display:block;opacity:.5;
+}
+.ig-lb-video-overlay{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:#fff;text-align:center;pointer-events:none;
+}
+.ig-lb-video-overlay h3{font-size:clamp(18px,3vw,28px);font-weight:900;margin-bottom:4px;}
+.ig-lb-video-overlay p{font-size:13px;color:rgba(255,255,255,.6);}
+
+/* Grid */
+.ig-lb-grid-wrap{
+  flex:1;overflow-y:auto;
+  padding:16px;
+  scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.2) transparent;
+}
+.ig-lb-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:4px;
+}
+@media(max-width:600px){.ig-lb-grid{grid-template-columns:repeat(3,1fr);gap:3px;}}
+
+.ig-lb-item{
+  aspect-ratio:1;overflow:hidden;cursor:zoom-in;
+  background:#1a1a1a;position:relative;
+}
+.ig-lb-item img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .25s,opacity .2s;
+}
+.ig-lb-item:hover img{transform:scale(1.06);opacity:.85;}
+.ig-lb-item-overlay{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,.55);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .2s;
+}
+.ig-lb-item:hover .ig-lb-item-overlay{opacity:1;}
+
+/* Zoom viewer */
+.ig-zoom-view{
+  position:fixed;inset:0;z-index:3000;
+  background:rgba(0,0,0,.96);
+  display:none;
+  align-items:center;justify-content:center;
+  flex-direction:column;
+}
+.ig-zoom-view.open{display:flex;}
+.ig-zoom-img{
+  max-width:90vw;max-height:85vh;
+  object-fit:contain;display:block;
+  border-radius:4px;
+  cursor:zoom-out;
+}
+.ig-zoom-close{
+  position:absolute;top:16px;right:16px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+  color:#fff;width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:20px;z-index:1;
+}
+.ig-zoom-close:hover{background:rgba(255,255,255,.25);}
+.ig-zoom-nav{
+  display:flex;gap:12px;margin-top:14px;
+}
+.ig-zoom-nav button{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  color:#fff;padding:8px 20px;border-radius:20px;cursor:pointer;
+  font-size:13px;font-weight:700;font-family:'Roboto',sans-serif;
+  transition:background .15s;
+}
+.ig-zoom-nav button:hover{background:rgba(255,255,255,.2);}
+
 body{padding-bottom:66px;}
 
 /* ═══════════════════════════════════════════════
@@ -1681,8 +1863,8 @@ body{padding-bottom:66px;}
 
   /* ── HERO ── */
   .hero-inner{
-    padding:72px 5% 64px;
-    gap:52px;
+    padding:64px 80px 56px;
+    gap:40px;
     align-items:center;
   }
   .hero h1{font-size:clamp(36px,3.8vw,52px);line-height:1.07;}
@@ -1817,9 +1999,10 @@ body{padding-bottom:66px;}
   /* ── HERO ── */
   .hero-inner{
     grid-template-columns:1fr 460px;
-    padding:84px 6% 72px;
-    gap:72px;
-    max-width:1440px;
+    padding:64px 100px 64px;
+    gap:56px;
+    max-width:none;
+    margin:0;
   }
   .hero h1{font-size:clamp(44px,3.5vw,58px);}
   .hero-desc{font-size:17px;}
@@ -1857,7 +2040,7 @@ body{padding-bottom:66px;}
 }
 
 @media(min-width:1400px){
-  .hero-inner{padding:88px 8% 80px;gap:80px;}
+  .hero-inner{padding:72px 120px 72px;gap:60px;}
   .sec{padding:88px 8%;}
   .fac-sec,.video-showcase-strip,.cat-sec{padding:88px 8%;}
   .footer{padding:72px 8% 36px;}
@@ -2133,173 +2316,47 @@ body{padding-bottom:66px;}
     <div class="platform-logos-wrap">
       <!-- Scrolling logo track — duplicated for infinite loop -->
       <div class="platform-track" id="platformTrack">
-
-
         <!-- FIRST COPY -->
-        <a href="https://www.indiamart.com" target="_blank" rel="noopener" class="plogo-card" title="IndiaMart">
-          <img src="https://logo.clearbit.com/indiamart.com?size=80" alt="IndiaMart" loading="eager">
-          <span class="plogo-name">IndiaMart</span>
-        </a>
-        <a href="https://www.tradeindia.com" target="_blank" rel="noopener" class="plogo-card" title="TradeIndia">
-          <img src="https://logo.clearbit.com/tradeindia.com?size=80" alt="TradeIndia" loading="eager">
-          <span class="plogo-name">TradeIndia</span>
-        </a>
-        <a href="https://www.justdial.com" target="_blank" rel="noopener" class="plogo-card" title="JustDial">
-          <img src="https://logo.clearbit.com/justdial.com?size=80" alt="JustDial" loading="eager">
-          <span class="plogo-name">JustDial</span>
-        </a>
-        <a href="https://business.amazon.in" target="_blank" rel="noopener" class="plogo-card" title="Amazon Business">
-          <img src="https://logo.clearbit.com/amazon.com?size=80" alt="Amazon Business" loading="eager">
-          <span class="plogo-name">Amazon Business</span>
-        </a>
-        <a href="https://business.google.com" target="_blank" rel="noopener" class="plogo-card" title="Google Business">
-          <img src="https://logo.clearbit.com/google.com?size=80" alt="Google Business" loading="eager">
-          <span class="plogo-name">Google Business</span>
-        </a>
-        <a href="https://www.alibaba.com" target="_blank" rel="noopener" class="plogo-card" title="Alibaba">
-          <img src="https://logo.clearbit.com/alibaba.com?size=80" alt="Alibaba" loading="eager">
-          <span class="plogo-name">Alibaba</span>
-        </a>
-        <a href="https://www.exportersindia.com" target="_blank" rel="noopener" class="plogo-card" title="ExportersIndia">
-          <img src="https://logo.clearbit.com/exportersindia.com?size=80" alt="ExportersIndia" loading="eager">
-          <span class="plogo-name">ExportersIndia</span>
-        </a>
-        <a href="https://www.sulekha.com" target="_blank" rel="noopener" class="plogo-card" title="Sulekha">
-          <img src="https://logo.clearbit.com/sulekha.com?size=80" alt="Sulekha" loading="eager">
-          <span class="plogo-name">Sulekha</span>
-        </a>
-        <a href="https://udaan.com" target="_blank" rel="noopener" class="plogo-card" title="Udaan">
-          <img src="https://logo.clearbit.com/udaan.com?size=80" alt="Udaan" loading="eager">
-          <span class="plogo-name">Udaan</span>
-        </a>
-        <a href="https://www.yellowpages.in" target="_blank" rel="noopener" class="plogo-card" title="Yellow Pages">
-          <img src="https://logo.clearbit.com/yellowpages.in?size=80" alt="Yellow Pages" loading="eager">
-          <span class="plogo-name">Yellow Pages</span>
-        </a>
-        <a href="https://www.globalsources.com" target="_blank" rel="noopener" class="plogo-card" title="GlobalSources">
-          <img src="https://logo.clearbit.com/globalsources.com?size=80" alt="GlobalSources" loading="eager">
-          <span class="plogo-name">GlobalSources</span>
-        </a>
-        <a href="https://www.tradekey.com" target="_blank" rel="noopener" class="plogo-card" title="TradeKey">
-          <img src="https://logo.clearbit.com/tradekey.com?size=80" alt="TradeKey" loading="eager">
-          <span class="plogo-name">TradeKey</span>
-        </a>
-        <a href="https://www.go4worldbusiness.com" target="_blank" rel="noopener" class="plogo-card" title="Go4WorldBusiness">
-          <img src="https://logo.clearbit.com/go4worldbusiness.com?size=80" alt="Go4WorldBusiness" loading="eager">
-          <span class="plogo-name">Go4WorldBusiness</span>
-        </a>
-        <a href="https://www.bizvibe.com" target="_blank" rel="noopener" class="plogo-card" title="BizVibe">
-          <img src="https://logo.clearbit.com/bizvibe.com?size=80" alt="BizVibe" loading="eager">
-          <span class="plogo-name">BizVibe</span>
-        </a>
-        <a href="https://www.kompass.com" target="_blank" rel="noopener" class="plogo-card" title="Kompass">
-          <img src="https://logo.clearbit.com/kompass.com?size=80" alt="Kompass" loading="eager">
-          <span class="plogo-name">Kompass</span>
-        </a>
-        <a href="https://www.thomasnet.com" target="_blank" rel="noopener" class="plogo-card" title="Thomasnet">
-          <img src="https://logo.clearbit.com/thomasnet.com?size=80" alt="Thomasnet" loading="eager">
-          <span class="plogo-name">Thomasnet</span>
-        </a>
-        <a href="https://mfg.com" target="_blank" rel="noopener" class="plogo-card" title="Mfg.com">
-          <img src="https://logo.clearbit.com/mfg.com?size=80" alt="Mfg.com" loading="eager">
-          <span class="plogo-name">Mfg.com</span>
-        </a>
-        <a href="https://www.wlw.de" target="_blank" rel="noopener" class="plogo-card" title="Wer Liefert Was">
-          <img src="https://logo.clearbit.com/wlw.de?size=80" alt="Wer Liefert Was" loading="eager">
-          <span class="plogo-name">Wer Liefert Was</span>
-        </a>
-        <a href="https://www.europages.com" target="_blank" rel="noopener" class="plogo-card" title="Europages">
-          <img src="https://logo.clearbit.com/europages.com?size=80" alt="Europages" loading="eager">
-          <span class="plogo-name">Europages</span>
-        </a>
+        <a href="https://www.indiamart.com" target="_blank" rel="noopener" class="ptxt-pill">IndiaMart</a>
+        <a href="https://www.tradeindia.com" target="_blank" rel="noopener" class="ptxt-pill">TradeIndia</a>
+        <a href="https://www.justdial.com" target="_blank" rel="noopener" class="ptxt-pill">JustDial</a>
+        <a href="https://business.amazon.in" target="_blank" rel="noopener" class="ptxt-pill">Amazon Business</a>
+        <a href="https://business.google.com" target="_blank" rel="noopener" class="ptxt-pill">Google Business</a>
+        <a href="https://www.alibaba.com" target="_blank" rel="noopener" class="ptxt-pill">Alibaba</a>
+        <a href="https://www.exportersindia.com" target="_blank" rel="noopener" class="ptxt-pill">ExportersIndia</a>
+        <a href="https://www.sulekha.com" target="_blank" rel="noopener" class="ptxt-pill">Sulekha</a>
+        <a href="https://udaan.com" target="_blank" rel="noopener" class="ptxt-pill">Udaan</a>
+        <a href="https://www.yellowpages.in" target="_blank" rel="noopener" class="ptxt-pill">Yellow Pages</a>
+        <a href="https://www.globalsources.com" target="_blank" rel="noopener" class="ptxt-pill">GlobalSources</a>
+        <a href="https://www.tradekey.com" target="_blank" rel="noopener" class="ptxt-pill">TradeKey</a>
+        <a href="https://www.go4worldbusiness.com" target="_blank" rel="noopener" class="ptxt-pill">Go4WorldBusiness</a>
+        <a href="https://www.bizvibe.com" target="_blank" rel="noopener" class="ptxt-pill">BizVibe</a>
+        <a href="https://www.kompass.com" target="_blank" rel="noopener" class="ptxt-pill">Kompass</a>
+        <a href="https://www.thomasnet.com" target="_blank" rel="noopener" class="ptxt-pill">Thomasnet</a>
+        <a href="https://mfg.com" target="_blank" rel="noopener" class="ptxt-pill">Mfg.com</a>
+        <a href="https://www.wlw.de" target="_blank" rel="noopener" class="ptxt-pill">Wer Liefert Was</a>
+        <a href="https://www.europages.com" target="_blank" rel="noopener" class="ptxt-pill">Europages</a>
         <!-- DUPLICATE FOR SEAMLESS LOOP -->
-        <a href="https://www.indiamart.com" target="_blank" rel="noopener" class="plogo-card" title="IndiaMart">
-          <img src="https://logo.clearbit.com/indiamart.com?size=80" alt="IndiaMart" loading="eager">
-          <span class="plogo-name">IndiaMart</span>
-        </a>
-        <a href="https://www.tradeindia.com" target="_blank" rel="noopener" class="plogo-card" title="TradeIndia">
-          <img src="https://logo.clearbit.com/tradeindia.com?size=80" alt="TradeIndia" loading="eager">
-          <span class="plogo-name">TradeIndia</span>
-        </a>
-        <a href="https://www.justdial.com" target="_blank" rel="noopener" class="plogo-card" title="JustDial">
-          <img src="https://logo.clearbit.com/justdial.com?size=80" alt="JustDial" loading="eager">
-          <span class="plogo-name">JustDial</span>
-        </a>
-        <a href="https://business.amazon.in" target="_blank" rel="noopener" class="plogo-card" title="Amazon Business">
-          <img src="https://logo.clearbit.com/amazon.com?size=80" alt="Amazon Business" loading="eager">
-          <span class="plogo-name">Amazon Business</span>
-        </a>
-        <a href="https://business.google.com" target="_blank" rel="noopener" class="plogo-card" title="Google Business">
-          <img src="https://logo.clearbit.com/google.com?size=80" alt="Google Business" loading="eager">
-          <span class="plogo-name">Google Business</span>
-        </a>
-        <a href="https://www.alibaba.com" target="_blank" rel="noopener" class="plogo-card" title="Alibaba">
-          <img src="https://logo.clearbit.com/alibaba.com?size=80" alt="Alibaba" loading="eager">
-          <span class="plogo-name">Alibaba</span>
-        </a>
-        <a href="https://www.exportersindia.com" target="_blank" rel="noopener" class="plogo-card" title="ExportersIndia">
-          <img src="https://logo.clearbit.com/exportersindia.com?size=80" alt="ExportersIndia" loading="eager">
-          <span class="plogo-name">ExportersIndia</span>
-        </a>
-        <a href="https://www.sulekha.com" target="_blank" rel="noopener" class="plogo-card" title="Sulekha">
-          <img src="https://logo.clearbit.com/sulekha.com?size=80" alt="Sulekha" loading="eager">
-          <span class="plogo-name">Sulekha</span>
-        </a>
-        <a href="https://udaan.com" target="_blank" rel="noopener" class="plogo-card" title="Udaan">
-          <img src="https://logo.clearbit.com/udaan.com?size=80" alt="Udaan" loading="eager">
-          <span class="plogo-name">Udaan</span>
-        </a>
-        <a href="https://www.yellowpages.in" target="_blank" rel="noopener" class="plogo-card" title="Yellow Pages">
-          <img src="https://logo.clearbit.com/yellowpages.in?size=80" alt="Yellow Pages" loading="eager">
-          <span class="plogo-name">Yellow Pages</span>
-        </a>
-        <a href="https://www.globalsources.com" target="_blank" rel="noopener" class="plogo-card" title="GlobalSources">
-          <img src="https://logo.clearbit.com/globalsources.com?size=80" alt="GlobalSources" loading="eager">
-          <span class="plogo-name">GlobalSources</span>
-        </a>
-        <a href="https://www.tradekey.com" target="_blank" rel="noopener" class="plogo-card" title="TradeKey">
-          <img src="https://logo.clearbit.com/tradekey.com?size=80" alt="TradeKey" loading="eager">
-          <span class="plogo-name">TradeKey</span>
-        </a>
-        <a href="https://www.go4worldbusiness.com" target="_blank" rel="noopener" class="plogo-card" title="Go4WorldBusiness">
-          <img src="https://logo.clearbit.com/go4worldbusiness.com?size=80" alt="Go4WorldBusiness" loading="eager">
-          <span class="plogo-name">Go4WorldBusiness</span>
-        </a>
-        <a href="https://www.bizvibe.com" target="_blank" rel="noopener" class="plogo-card" title="BizVibe">
-          <img src="https://logo.clearbit.com/bizvibe.com?size=80" alt="BizVibe" loading="eager">
-          <span class="plogo-name">BizVibe</span>
-        </a>
-        <a href="https://www.kompass.com" target="_blank" rel="noopener" class="plogo-card" title="Kompass">
-          <img src="https://logo.clearbit.com/kompass.com?size=80" alt="Kompass" loading="eager">
-          <span class="plogo-name">Kompass</span>
-        </a>
-        <a href="https://www.thomasnet.com" target="_blank" rel="noopener" class="plogo-card" title="Thomasnet">
-          <img src="https://logo.clearbit.com/thomasnet.com?size=80" alt="Thomasnet" loading="eager">
-          <span class="plogo-name">Thomasnet</span>
-        </a>
-        <a href="https://mfg.com" target="_blank" rel="noopener" class="plogo-card" title="Mfg.com">
-          <img src="https://logo.clearbit.com/mfg.com?size=80" alt="Mfg.com" loading="eager">
-          <span class="plogo-name">Mfg.com</span>
-        </a>
-        <a href="https://www.wlw.de" target="_blank" rel="noopener" class="plogo-card" title="Wer Liefert Was">
-          <img src="https://logo.clearbit.com/wlw.de?size=80" alt="Wer Liefert Was" loading="eager">
-          <span class="plogo-name">Wer Liefert Was</span>
-        </a>
-        <a href="https://www.europages.com" target="_blank" rel="noopener" class="plogo-card" title="Europages">
-          <img src="https://logo.clearbit.com/europages.com?size=80" alt="Europages" loading="eager">
-          <span class="plogo-name">Europages</span>
-        </a>
-      </div><!-- /platform-track -->
-    </div><!-- /platform-logos-wrap -->
-
-    <div class="platform-divider"></div>
-
-    <div class="platform-badge-col">
-      <div class="platform-verified">
-        <span class="pv-icon">✓</span>
-        <div>
-          <div class="pv-title">Verified Manufacturer</div>
-          <div class="pv-sub">ISO Certified · Since 1975</div>
+        <a href="https://www.indiamart.com" target="_blank" rel="noopener" class="ptxt-pill">IndiaMart</a>
+        <a href="https://www.tradeindia.com" target="_blank" rel="noopener" class="ptxt-pill">TradeIndia</a>
+        <a href="https://www.justdial.com" target="_blank" rel="noopener" class="ptxt-pill">JustDial</a>
+        <a href="https://business.amazon.in" target="_blank" rel="noopener" class="ptxt-pill">Amazon Business</a>
+        <a href="https://business.google.com" target="_blank" rel="noopener" class="ptxt-pill">Google Business</a>
+        <a href="https://www.alibaba.com" target="_blank" rel="noopener" class="ptxt-pill">Alibaba</a>
+        <a href="https://www.exportersindia.com" target="_blank" rel="noopener" class="ptxt-pill">ExportersIndia</a>
+        <a href="https://www.sulekha.com" target="_blank" rel="noopener" class="ptxt-pill">Sulekha</a>
+        <a href="https://udaan.com" target="_blank" rel="noopener" class="ptxt-pill">Udaan</a>
+        <a href="https://www.yellowpages.in" target="_blank" rel="noopener" class="ptxt-pill">Yellow Pages</a>
+        <a href="https://www.globalsources.com" target="_blank" rel="noopener" class="ptxt-pill">GlobalSources</a>
+        <a href="https://www.tradekey.com" target="_blank" rel="noopener" class="ptxt-pill">TradeKey</a>
+        <a href="https://www.go4worldbusiness.com" target="_blank" rel="noopener" class="ptxt-pill">Go4WorldBusiness</a>
+        <a href="https://www.bizvibe.com" target="_blank" rel="noopener" class="ptxt-pill">BizVibe</a>
+        <a href="https://www.kompass.com" target="_blank" rel="noopener" class="ptxt-pill">Kompass</a>
+        <a href="https://www.thomasnet.com" target="_blank" rel="noopener" class="ptxt-pill">Thomasnet</a>
+        <a href="https://mfg.com" target="_blank" rel="noopener" class="ptxt-pill">Mfg.com</a>
+        <a href="https://www.wlw.de" target="_blank" rel="noopener" class="ptxt-pill">Wer Liefert Was</a>
+        <a href="https://www.europages.com" target="_blank" rel="noopener" class="ptxt-pill">Europages</a>
+      </div>
         </div>
       </div>
     </div>
@@ -2318,7 +2375,7 @@ body{padding-bottom:66px;}
 
       <div class="prod-card" onclick="openProductModal(0)">
         <div class="prod-img-wrap">
-          <img src="https://images.unsplash.com/photo-1601598851547-4302969d0614?w=800&h=500&fit=crop&auto=format" alt="Mono Cartons" loading="eager" style="width:100%;height:130px;object-fit:cover;display:block;">
+          <img src="https://static.wixstatic.com/media/7fa905_8926ef9550364b36a6bec293c24523b5~mv2.jpg" alt="Mono Cartons" loading="eager" style="width:100%;height:200px;object-fit:contain;display:block;padding:8px;">
           <div class="prod-zoom-hint">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
             View
@@ -2333,7 +2390,7 @@ body{padding-bottom:66px;}
       </div>
       <div class="prod-card" onclick="openProductModal(1)">
         <div class="prod-img-wrap">
-          <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=800&h=500&fit=crop&auto=format" alt="Rigid Boxes" loading="eager" style="width:100%;height:130px;object-fit:cover;display:block;">
+          <img src="https://static.wixstatic.com/media/7fa905_bae495005fb34c20bb5d3d376f9d9b35~mv2.jpg" alt="Rigid Boxes" loading="eager" style="width:100%;height:200px;object-fit:contain;display:block;padding:8px;">
           <div class="prod-zoom-hint">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
             View
@@ -2348,7 +2405,7 @@ body{padding-bottom:66px;}
       </div>
       <div class="prod-card" onclick="openProductModal(2)">
         <div class="prod-img-wrap">
-          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=500&fit=crop&auto=format" alt="Cosmetic Packaging" loading="eager" style="width:100%;height:130px;object-fit:cover;display:block;">
+          <img src="https://static.wixstatic.com/media/895e2c_fd237721e2ba4be68f629938c7672e4e~mv2.webp" alt="Cosmetic Packaging" loading="eager" style="width:100%;height:200px;object-fit:contain;display:block;padding:8px;">
           <div class="prod-zoom-hint">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
             View
@@ -2363,7 +2420,7 @@ body{padding-bottom:66px;}
       </div>
       <div class="prod-card" onclick="openProductModal(3)">
         <div class="prod-img-wrap">
-          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&h=500&fit=crop&auto=format" alt="Pharma Packaging" loading="eager" style="width:100%;height:130px;object-fit:cover;display:block;">
+          <img src="https://static.wixstatic.com/media/7fa905_3e6d7a4779864489b56b4c1855af3531~mv2.png" alt="Pharma Packaging" loading="eager" style="width:100%;height:200px;object-fit:contain;display:block;padding:8px;">
           <div class="prod-zoom-hint">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
             View
@@ -2378,7 +2435,7 @@ body{padding-bottom:66px;}
       </div>
       <div class="prod-card" onclick="openProductModal(4)">
         <div class="prod-img-wrap">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop&auto=format" alt="Food Packaging" loading="eager" style="width:100%;height:130px;object-fit:cover;display:block;">
+          <img src="https://static.wixstatic.com/media/895e2c_a61d60dee25d4007b06ae9155af432a2~mv2.webp" alt="Food Packaging" loading="eager" style="width:100%;height:200px;object-fit:contain;display:block;padding:8px;">
           <div class="prod-zoom-hint">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
             View
@@ -2393,7 +2450,7 @@ body{padding-bottom:66px;}
       </div>
       <div class="prod-card" onclick="openProductModal(5)">
         <div class="prod-img-wrap">
-          <img src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=800&h=500&fit=crop&auto=format" alt="Gift & Hamper Boxes" loading="eager" style="width:100%;height:130px;object-fit:cover;display:block;">
+          <img src="https://static.wixstatic.com/media/7fa905_dd7bbd636b494e7e82fdc6a7b43163de~mv2.jpg" alt="Gift & Hamper Boxes" loading="eager" style="width:100%;height:200px;object-fit:contain;display:block;padding:8px;">
           <div class="prod-zoom-hint">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
             View
@@ -2408,7 +2465,7 @@ body{padding-bottom:66px;}
       </div>
       <div class="prod-card" onclick="openProductModal(6)">
         <div class="prod-img-wrap">
-          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=500&fit=crop&auto=format" alt="Corrugated Boxes" loading="eager" style="width:100%;height:130px;object-fit:cover;display:block;">
+          <img src="https://static.wixstatic.com/media/7fa905_61d83ead684a4ec89e70d33cc509d362~mv2.png" alt="Corrugated Boxes" loading="eager" style="width:100%;height:200px;object-fit:contain;display:block;padding:8px;">
           <div class="prod-zoom-hint">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
             View
@@ -2423,7 +2480,7 @@ body{padding-bottom:66px;}
       </div>
       <div class="prod-card" onclick="openProductModal(7)">
         <div class="prod-img-wrap">
-          <img src="https://images.unsplash.com/photo-1609791283681-5cd6527df0ea?w=800&h=500&fit=crop&auto=format" alt="Ecommerce Mailer Boxes" loading="eager" style="width:100%;height:130px;object-fit:cover;display:block;">
+          <img src="https://static.wixstatic.com/media/7fa905_4dd6d0f0e3cf45d2964bc9952b3645ab~mv2.jpg" alt="Ecommerce Mailer Boxes" loading="eager" style="width:100%;height:200px;object-fit:contain;display:block;padding:8px;">
           <div class="prod-zoom-hint">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
             View
@@ -2438,7 +2495,7 @@ body{padding-bottom:66px;}
       </div>
       <div class="prod-card" onclick="openProductModal(8)">
         <div class="prod-img-wrap">
-          <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&h=500&fit=crop&auto=format" alt="Kappa Board Boxes" loading="eager" style="width:100%;height:130px;object-fit:cover;display:block;">
+          <img src="https://static.wixstatic.com/media/895e2c_ba7074005e5147f583f3e9f1d67ffaeb~mv2.webp" alt="Kappa Board Boxes" loading="eager" style="width:100%;height:200px;object-fit:contain;display:block;padding:8px;">
           <div class="prod-zoom-hint">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
             View
@@ -2453,7 +2510,7 @@ body{padding-bottom:66px;}
       </div>
       <div class="prod-card" onclick="openProductModal(9)">
         <div class="prod-img-wrap">
-          <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&h=500&fit=crop&auto=format" alt="POS Display Units" loading="eager" style="width:100%;height:130px;object-fit:cover;display:block;">
+          <img src="https://static.wixstatic.com/media/895e2c_a0fc695fb6b74aa1a40665edf4c6fa02~mv2.gif" alt="POS Display Units" loading="eager" style="width:100%;height:200px;object-fit:contain;display:block;padding:8px;">
           <div class="prod-zoom-hint">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
             View
@@ -2468,7 +2525,7 @@ body{padding-bottom:66px;}
       </div>
       <div class="prod-card" onclick="openProductModal(10)">
         <div class="prod-img-wrap">
-          <img src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=800&h=500&fit=crop&auto=format" alt="Spirits & Liquor Packaging" loading="eager" style="width:100%;height:130px;object-fit:cover;display:block;">
+          <img src="https://static.wixstatic.com/media/895e2c_9835a8472a314843b035854de096b07f~mv2.webp" alt="Spirits & Liquor Packaging" loading="eager" style="width:100%;height:200px;object-fit:contain;display:block;padding:8px;">
           <div class="prod-zoom-hint">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
             View
@@ -2483,7 +2540,7 @@ body{padding-bottom:66px;}
       </div>
       <div class="prod-card" onclick="openProductModal(11)">
         <div class="prod-img-wrap">
-          <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=800&h=500&fit=crop&auto=format" alt="Jewellery Packaging" loading="eager" style="width:100%;height:130px;object-fit:cover;display:block;">
+          <img src="https://static.wixstatic.com/media/7fa905_257c6cc9c92c41e2b7ede454cbc9dbe6~mv2.png" alt="Jewellery Packaging" loading="eager" style="width:100%;height:200px;object-fit:contain;display:block;padding:8px;">
           <div class="prod-zoom-hint">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></svg>
             View
@@ -2500,6 +2557,85 @@ body{padding-bottom:66px;}
 
   </div>
 </section>
+
+
+
+<!-- ══ INSTAGRAM GALLERY SECTION ══ -->
+<section class="ig-sec" id="instagram">
+
+  <div class="ig-header">
+    <div class="lbl">Follow Us on Instagram</div>
+    <h2 class="h2">From Our <em>Factory Floor</em></h2>
+    <p class="sub">Real packaging, real clients, real craft — @solarprintprocess</p>
+  </div>
+
+  <div class="ig-strip-wrap">
+    <div class="ig-strip-fade-l"></div>
+    <div class="ig-strip-fade-r"></div>
+    <div class="ig-strip" id="igStrip">
+      <!-- Images loaded by JS from IG_PHOTOS array below -->
+    </div>
+  </div>
+
+  <div class="ig-viewmore-wrap">
+    <button class="ig-viewmore-btn" onclick="openIgLightbox()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      View All Photos
+    </button>
+  </div>
+
+</section>
+
+<!-- ══ FULLSCREEN INSTAGRAM LIGHTBOX ══ -->
+<div class="ig-lightbox" id="igLightbox">
+
+  <!-- Header bar -->
+  <div class="ig-lb-header">
+    <div class="ig-lb-brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      <div>
+        <div>@solarprintprocess</div>
+        <div class="ig-lb-sub">Solar Print Process Pvt. Ltd. · Custom Packaging</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="https://www.instagram.com/solarprintprocess/" target="_blank" rel="noopener" class="ig-lb-follow">
+        Follow on Instagram
+      </a>
+      <div class="ig-lb-close" onclick="closeIgLightbox()">✕</div>
+    </div>
+  </div>
+
+  <!-- Factory video banner -->
+  <div class="ig-lb-video">
+    <video src="https://video.wixstatic.com/video/895e2c_86e42e0301ed4330970324ac77022bc1/720p/mp4/file.mp4"
+      autoplay muted loop playsinline preload="auto"
+      poster="https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp">
+    </video>
+    <div class="ig-lb-video-overlay">
+      <h3>Solar Print Process Factory</h3>
+      <p>200,000 sq ft · 51+ Years · Noida, India</p>
+    </div>
+  </div>
+
+  <!-- Photo grid -->
+  <div class="ig-lb-grid-wrap">
+    <div class="ig-lb-grid" id="igLbGrid">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ ZOOM VIEWER ══ -->
+<div class="ig-zoom-view" id="igZoomView">
+  <div class="ig-zoom-close" onclick="closeIgZoom()">✕</div>
+  <img class="ig-zoom-img" id="igZoomImg" src="" alt="Solar Print Packaging">
+  <div class="ig-zoom-nav">
+    <button onclick="igZoomPrev()">← Prev</button>
+    <button onclick="igZoomNext()">Next →</button>
+  </div>
+</div>
 
 
 <!-- ══ VIDEO SHOWCASE — after products ══ -->
@@ -3016,14 +3152,6 @@ body{padding-bottom:66px;}
 
     </div>
     <!-- end primary logos -->
-
-    <!-- DIVIDER WITH QUOTE -->
-    <div class="client-quote-strip">
-      <div class="cqs-stars">★★★★★</div>
-      <blockquote class="cqs-text">"Solar has been our primary packaging partner for 8 years. Their consistency, quality and on-time delivery record is simply unmatched in the industry."</blockquote>
-      <div class="cqs-author">— VP Supply Chain, Leading FMCG Brand &nbsp;·&nbsp; 500+ B2B Clients Served</div>
-    </div>
-
     <!-- ALSO TRUSTED BY — scrolling ticker -->
     <div class="ticker-wrap">
       <div class="ticker-label">Also trusted by 500+ brands including</div>
@@ -3518,7 +3646,7 @@ function submitHeroForm(){
     id: Date.now(),
     ts: new Date().toLocaleString('en-IN'),
     name: name.value.trim(),
-    phone: '+91 ' + phone.value.trim(),
+    phone: phone.value.trim(), // digits only — no + prefix to avoid Sheets formula error
     company: company.value.trim(),
     gst: gst.value.trim(),
     source: 'Hero Form',
@@ -3529,8 +3657,7 @@ function submitHeroForm(){
     var leads = JSON.parse(localStorage.getItem('sp_leads') || '[]');
     leads.unshift(lead); localStorage.setItem('sp_leads', JSON.stringify(leads.slice(0,500)));
   } catch(e){}
-  sendToGoogleSheets(lead);
-  sendToEspoCRM(lead);
+  sendToEspoCRM(lead); // handles both Sheets + EspoCRM
 
   // ── REDIRECT TO THANK-YOU (WhatsApp link embedded in thank-you page) ──
   window.location.href = 'thank-you.html?wa='+encodeURIComponent('https://wa.me/919871713676?text='+msg);
@@ -3593,18 +3720,19 @@ document.getElementById('eiOverlay').addEventListener('click',function(e){if(e.t
 
 // ── PRODUCT DATA FOR MODALS ───────────────
 var PROD_DATA = [
-  {name:"Mono Cartons", img:"https://images.unsplash.com/photo-1601598851547-4302969d0614?w=900&h=500&fit=crop&auto=format", desc:"Offset-printed folding cartons for FMCG, pharma, food and personal care. All finishes available.", wa:"Mono+Cartons"},
-  {name:"Rigid Boxes", img:"https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=900&h=500&fit=crop&auto=format", desc:"Premium setup boxes for luxury brands, jewellery and gifting. Magnetic closure options.", wa:"Rigid+Boxes"},
-  {name:"Cosmetic Packaging", img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=900&h=500&fit=crop&auto=format", desc:"Custom beauty and skincare boxes with embossing, hot foil and soft-touch laminates.", wa:"Cosmetic+Packaging"},
-  {name:"Pharma Packaging", img:"https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=900&h=500&fit=crop&auto=format", desc:"Compliant high-volume mono cartons and folding boxes for medicines and supplements.", wa:"Pharma+Packaging"},
-  {name:"Food Packaging", img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=500&fit=crop&auto=format", desc:"Food-safe printed cartons for bakery, confectionery, snacks and packaged food.", wa:"Food+Packaging"},
-  {name:"Gift & Hamper Boxes", img:"https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=900&h=500&fit=crop&auto=format", desc:"Luxury gift boxes, hamper boxes, sleeve and drawer boxes for corporate gifting.", wa:"Gift+Boxes"},
-  {name:"Corrugated Boxes", img:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&h=500&fit=crop&auto=format", desc:"Custom printed corrugated shipping boxes for bulk dispatch, export and ecommerce.", wa:"Corrugated+Boxes"},
-  {name:"Ecommerce Mailer Boxes", img:"https://images.unsplash.com/photo-1609791283681-5cd6527df0ea?w=900&h=500&fit=crop&auto=format", desc:"Branded self-locking mailer boxes for D2C brands. Strong, lightweight and print-ready.", wa:"Ecommerce+Mailer+Boxes"},
-  {name:"Kappa Board Boxes", img:"https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=900&h=500&fit=crop&auto=format", desc:"High-quality Kappa/greyboard boxes for watches, electronics and premium products.", wa:"Kappa+Boxes"},
-  {name:"POS Display Units", img:"https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&h=500&fit=crop&auto=format", desc:"Retail point-of-sale displays, counter displays and shelf-ready packaging.", wa:"Display+Units"},
-  {name:"Spirits & Liquor Packaging", img:"https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=900&h=500&fit=crop&auto=format", desc:"Premium cartons and rigid boxes for whisky, spirits and wine. Foil and emboss finishes.", wa:"Spirits+Packaging"},
-  {name:"Jewellery Packaging", img:"https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=900&h=500&fit=crop&auto=format", desc:"Velvet insert boxes, rigid display boxes and gift sets for jewellery brands.", wa:"Jewellery+Packaging"}
+  {name:"Mono Cartons", img:"https://static.wixstatic.com/media/7fa905_8926ef9550364b36a6bec293c24523b5~mv2.jpg", desc:"Offset-printed folding cartons for FMCG, pharma, food and personal care. All finishes available.", wa:"Mono+Cartons"},
+  {name:"Rigid Boxes", img:"https://static.wixstatic.com/media/7fa905_bae495005fb34c20bb5d3d376f9d9b35~mv2.jpg", desc:"Premium setup boxes for luxury brands, jewellery and gifting. Magnetic closure options.", wa:"Rigid+Boxes"},
+  {name:"Cosmetic Packaging", img:"https://static.wixstatic.com/media/895e2c_fd237721e2ba4be68f629938c7672e4e~mv2.webp", desc:"Custom beauty and skincare boxes with embossing, hot foil and soft-touch laminates.", wa:"Cosmetic+Packaging"},
+  {name:"Pharma Packaging", img:"https://static.wixstatic.com/media/7fa905_3e6d7a4779864489b56b4c1855af3531~mv2.png", desc:"Compliant high-volume mono cartons and folding boxes for medicines and supplements.", wa:"Pharma+Packaging"},
+  {name:"Food Packaging", img:"https://static.wixstatic.com/media/895e2c_a61d60dee25d4007b06ae9155af432a2~mv2.webp", desc:"Food-safe printed cartons for bakery, confectionery, snacks and packaged food.", wa:"Food+Packaging"},
+  {name:"Gift & Hamper Boxes", img:"https://static.wixstatic.com/media/7fa905_dd7bbd636b494e7e82fdc6a7b43163de~mv2.jpg", desc:"Luxury gift boxes, hamper boxes, sleeve and drawer boxes for corporate gifting.", wa:"Gift+Boxes"},
+  {name:"Corrugated Boxes", img:"https://static.wixstatic.com/media/7fa905_61d83ead684a4ec89e70d33cc509d362~mv2.png", desc:"Custom printed corrugated shipping boxes for bulk dispatch, export and ecommerce.", wa:"Corrugated+Boxes"},
+  {name:"Ecommerce Mailer Boxes", img:"https://static.wixstatic.com/media/7fa905_4dd6d0f0e3cf45d2964bc9952b3645ab~mv2.jpg", desc:"Branded self-locking mailer boxes for D2C brands. Strong, lightweight and print-ready.", wa:"Ecommerce+Mailer+Boxes"},
+  {name:"Kappa Board Boxes", img:"https://static.wixstatic.com/media/895e2c_ba7074005e5147f583f3e9f1d67ffaeb~mv2.webp", desc:"High-quality Kappa/greyboard boxes for watches, electronics and premium products.", wa:"Kappa+Boxes"},
+  {name:"POS Display Units", img:"https://static.wixstatic.com/media/895e2c_a0fc695fb6b74aa1a40665edf4c6fa02~mv2.gif", desc:"Retail point-of-sale displays, counter displays and shelf-ready packaging.", wa:"Display+Units"},
+  {name:"Spirits & Liquor Packaging", img:"https://static.wixstatic.com/media/895e2c_9835a8472a314843b035854de096b07f~mv2.webp", desc:"Premium cartons and rigid boxes for whisky, spirits and wine. Foil and emboss finishes.", wa:"Spirits+Packaging"},
+  {name:"Jewellery Packaging", img:"https://static.wixstatic.com/media/7fa905_257c6cc9c92c41e2b7ede454cbc9dbe6~mv2.png", desc:"Velvet insert boxes, rigid display boxes and gift sets for jewellery brands.", wa:"Jewellery+Packaging"},
+  {name:"Catalogue & Books Printing", img:"https://static.wixstatic.com/media/895e2c_9e81c6fdaa0146e8bc877b1276885e43~mv2.webp", desc:"High-quality catalogues, lookbooks, brochures and product books. Offset printed with premium finishing options.", wa:"Catalogue+Printing"}
 ];
 
 // ── OPEN PRODUCT LIGHTBOX ─────────────────
@@ -3750,7 +3878,7 @@ function submitQuoteModal(){
       id: Date.now(),
       ts: new Date().toLocaleString('en-IN'),
       name: document.getElementById('qmName').value.trim(),
-      phone: '+91 ' + document.getElementById('qmPhone').value.trim(),
+      phone: document.getElementById('qmPhone').value.trim(),
       company: document.getElementById('qmCompany').value.trim(),
       gst: document.getElementById('qmGst').value.trim(),
       source: 'Quote Modal',
@@ -3760,8 +3888,7 @@ function submitQuoteModal(){
     var leads = JSON.parse(localStorage.getItem('sp_leads') || '[]');
     leads.unshift(lead);
     localStorage.setItem('sp_leads', JSON.stringify(leads.slice(0, 500)));
-    sendToGoogleSheets(lead);
-    sendToEspoCRM(lead);
+    sendToEspoCRM(lead); // handles both Sheets + EspoCRM
   } catch(e){}
 
   // ── REDIRECT TO THANK-YOU (WhatsApp link embedded in thank-you page) ──
@@ -3849,6 +3976,117 @@ function sendToGoogleSheets(lead) {
     body: JSON.stringify(lead)
   }).catch(function(){});
 }
+
+
+// ═══════════════════════════════════════════════════════════════
+// INSTAGRAM GALLERY
+// To update photos: replace URLs in IG_PHOTOS array below.
+// How to get URLs: Right-click any Instagram image → Copy image address
+// Or use your own hosted images (Wix, Cloudinary, Google Drive, etc.)
+// ═══════════════════════════════════════════════════════════════
+
+var IG_PHOTOS = [
+  // ── ADD YOUR INSTAGRAM IMAGE URLs HERE ──
+  // Replace these with real URLs from your Instagram or Wix media
+  "https://static.wixstatic.com/media/7fa905_8926ef9550364b36a6bec293c24523b5~mv2.jpg",
+  "https://static.wixstatic.com/media/7fa905_bae495005fb34c20bb5d3d376f9d9b35~mv2.jpg",
+  "https://static.wixstatic.com/media/895e2c_fd237721e2ba4be68f629938c7672e4e~mv2.webp",
+  "https://static.wixstatic.com/media/895e2c_a61d60dee25d4007b06ae9155af432a2~mv2.webp",
+  "https://static.wixstatic.com/media/895e2c_9835a8472a314843b035854de096b07f~mv2.webp",
+  "https://static.wixstatic.com/media/7fa905_dd7bbd636b494e7e82fdc6a7b43163de~mv2.jpg",
+  "https://static.wixstatic.com/media/7fa905_4dd6d0f0e3cf45d2964bc9952b3645ab~mv2.jpg",
+  "https://static.wixstatic.com/media/895e2c_ba7074005e5147f583f3e9f1d67ffaeb~mv2.webp",
+  "https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp",
+  "https://static.wixstatic.com/media/7fa905_3e6d7a4779864489b56b4c1855af3531~mv2.png",
+  "https://static.wixstatic.com/media/7fa905_257c6cc9c92c41e2b7ede454cbc9dbe6~mv2.png",
+  "https://static.wixstatic.com/media/7fa905_61d83ead684a4ec89e70d33cc509d362~mv2.png",
+  "https://static.wixstatic.com/media/895e2c_9e81c6fdaa0146e8bc877b1276885e43~mv2.webp",
+  "https://static.wixstatic.com/media/895e2c_a0fc695fb6b74aa1a40665edf4c6fa02~mv2.gif",
+  "https://static.wixstatic.com/media/895e2c_9835a8472a314843b035854de096b07f~mv2.webp",
+  "https://static.wixstatic.com/media/7fa905_8926ef9550364b36a6bec293c24523b5~mv2.jpg",
+  "https://static.wixstatic.com/media/895e2c_fd237721e2ba4be68f629938c7672e4e~mv2.webp",
+  "https://static.wixstatic.com/media/7fa905_bae495005fb34c20bb5d3d376f9d9b35~mv2.jpg",
+];
+
+var igCurrentZoomIdx = 0;
+
+// Build strip on page load
+(function(){
+  var strip = document.getElementById('igStrip');
+  if(!strip) return;
+  IG_PHOTOS.slice(0,12).forEach(function(url, i){
+    var div = document.createElement('div');
+    div.className = 'ig-thumb';
+    div.onclick = function(){ openIgLightbox(); };
+    div.innerHTML = '<img src="'+url+'" alt="Solar Print Packaging" loading="lazy">'
+      + '<div class="ig-thumb-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>';
+    strip.appendChild(div);
+  });
+
+  // Build lightbox grid
+  var grid = document.getElementById('igLbGrid');
+  if(!grid) return;
+  IG_PHOTOS.forEach(function(url, i){
+    var div = document.createElement('div');
+    div.className = 'ig-lb-item';
+    div.dataset.idx = i;
+    div.onclick = function(){ openIgZoom(i); };
+    div.innerHTML = '<img src="'+url+'" alt="Solar Print Packaging" loading="lazy">'
+      + '<div class="ig-lb-item-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>';
+    grid.appendChild(div);
+  });
+})();
+
+// Drag scroll on strip
+(function(){
+  var el = document.getElementById('igStrip');
+  if(!el) return;
+  var isDown=false, startX, scrollLeft;
+  el.addEventListener('mousedown',function(e){isDown=true;startX=e.pageX-el.offsetLeft;scrollLeft=el.scrollLeft;});
+  el.addEventListener('mouseleave',function(){isDown=false;});
+  el.addEventListener('mouseup',function(){isDown=false;});
+  el.addEventListener('mousemove',function(e){if(!isDown)return;e.preventDefault();var x=e.pageX-el.offsetLeft;el.scrollLeft=scrollLeft-(x-startX)*1.5;});
+})();
+
+function openIgLightbox(){
+  document.getElementById('igLightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeIgLightbox(){
+  document.getElementById('igLightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function openIgZoom(idx){
+  igCurrentZoomIdx = idx;
+  document.getElementById('igZoomImg').src = IG_PHOTOS[idx];
+  document.getElementById('igZoomView').classList.add('open');
+}
+function closeIgZoom(){
+  document.getElementById('igZoomView').classList.remove('open');
+}
+function igZoomPrev(){
+  igCurrentZoomIdx = (igCurrentZoomIdx - 1 + IG_PHOTOS.length) % IG_PHOTOS.length;
+  document.getElementById('igZoomImg').src = IG_PHOTOS[igCurrentZoomIdx];
+}
+function igZoomNext(){
+  igCurrentZoomIdx = (igCurrentZoomIdx + 1) % IG_PHOTOS.length;
+  document.getElementById('igZoomImg').src = IG_PHOTOS[igCurrentZoomIdx];
+}
+
+// Close lightbox on Escape
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    if(document.getElementById('igZoomView').classList.contains('open')) closeIgZoom();
+    else closeIgLightbox();
+  }
+});
+// Keyboard nav in zoom
+document.addEventListener('keydown',function(e){
+  if(!document.getElementById('igZoomView').classList.contains('open')) return;
+  if(e.key==='ArrowLeft') igZoomPrev();
+  if(e.key==='ArrowRight') igZoomNext();
+});
 
 // ── TOAST ─────────────────────────────────
 function showToast(msg){
