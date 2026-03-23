@@ -211,76 +211,25 @@ a{text-decoration:none;color:inherit;}
   </div>
 </div>
 
-<!-- PRODUCTS — explore more -->
-<section class="prod-sec">
+<!-- PRODUCTS -->
+<section class="sec prod-sec">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="lbl">While You Wait</div>
-      <h2 class="h2">Explore Our <em>Packaging Products</em></h2>
-      <p class="sub">Browse what we make — tap any product to WhatsApp us directly.</p>
-    </div>
+    <div class="lbl">Our Products</div>
+    <h2 class="h2">Our <em>Packaging</em> Products</h2>
+    <p class="sub">No middlemen. Direct factory pricing on all orders.</p>
     <div class="prod-grid">
-
-      <a href="https://wa.me/919871713676?text=Hello%2C+I+need+Mono+Cartons" target="_blank" class="prod-card" onclick="gtag&&gtag('event','product_card_click',{product_name:'Mono Cartons',page:'thank_you'})">
-        <img class="prod-img" src="https://images.unsplash.com/photo-1601598851547-4302969d0614?w=400&h=130&fit=crop&auto=format" alt="Mono Cartons">
-        <div class="prod-body">
-          <div class="prod-tag">FMCG · Pharma</div>
-          <h3>Mono Cartons</h3>
-          <p>Offset-printed folding cartons. All finishes. High-volume ready.</p>
-          <div class="prod-wa">WhatsApp for Quote →</div>
-        </div>
-      </a>
-
-      <a href="https://wa.me/919871713676?text=Hello%2C+I+need+Rigid+Boxes" target="_blank" class="prod-card" onclick="gtag&&gtag('event','product_card_click',{product_name:'Rigid Boxes',page:'thank_you'})">
-        <img class="prod-img" src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=400&h=130&fit=crop&auto=format" alt="Rigid Boxes">
-        <div class="prod-body">
-          <div class="prod-tag">Luxury · Gifting</div>
-          <h3>Rigid Boxes</h3>
-          <p>Premium setup boxes with magnetic closures. Gold foil & embossing.</p>
-          <div class="prod-wa">WhatsApp for Quote →</div>
-        </div>
-      </a>
-
-      <a href="https://wa.me/919871713676?text=Hello%2C+I+need+Cosmetic+Packaging" target="_blank" class="prod-card" onclick="gtag&&gtag('event','product_card_click',{product_name:'Cosmetic Packaging',page:'thank_you'})">
-        <img class="prod-img" src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=130&fit=crop&auto=format" alt="Cosmetic Packaging">
-        <div class="prod-body">
-          <div class="prod-tag">Beauty · Skincare</div>
-          <h3>Cosmetic Packaging</h3>
-          <p>Soft-touch lamination, hot foil, embossing. D2C beauty ready.</p>
-          <div class="prod-wa">WhatsApp for Quote →</div>
-        </div>
-      </a>
-
-      <a href="https://wa.me/919871713676?text=Hello%2C+I+need+Corrugated+Boxes" target="_blank" class="prod-card" onclick="gtag&&gtag('event','product_card_click',{product_name:'Corrugated Boxes',page:'thank_you'})">
-        <img class="prod-img" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=130&fit=crop&auto=format" alt="Corrugated Boxes">
-        <div class="prod-body">
-          <div class="prod-tag">Shipping · Export</div>
-          <h3>Corrugated Boxes</h3>
-          <p>Custom printed corrugated for bulk dispatch and ecommerce fulfilment.</p>
-          <div class="prod-wa">WhatsApp for Quote →</div>
-        </div>
-      </a>
-
-      <a href="https://wa.me/919871713676?text=Hello%2C+I+need+Spirits+Packaging" target="_blank" class="prod-card" onclick="gtag&&gtag('event','product_card_click',{product_name:'Spirits Packaging',page:'thank_you'})">
-        <img class="prod-img" src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=400&h=130&fit=crop&auto=format" alt="Spirits Packaging">
-        <div class="prod-body">
-          <div class="prod-tag">Spirits · Premium</div>
-          <h3>Spirits & Liquor Packaging</h3>
-          <p>Rigid boxes and mono cartons for whisky, wine and premium spirits.</p>
-          <div class="prod-wa">WhatsApp for Quote →</div>
-        </div>
-      </a>
-
-      <a href="https://wa.me/919871713676?text=Hello%2C+I+need+Food+Packaging" target="_blank" class="prod-card" onclick="gtag&&gtag('event','product_card_click',{product_name:'Food Packaging',page:'thank_you'})">
-        <img class="prod-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=130&fit=crop&auto=format" alt="Food Packaging">
-        <div class="prod-body">
-          <div class="prod-tag">Bakery · FMCG</div>
-          <h3>Food Packaging</h3>
-          <p>Food-safe printed cartons for bakery, confectionery and snacks.</p>
-          <div class="prod-wa">WhatsApp for Quote →</div>
-        </div>
-      </a>
-
+      <div class="prod-card" onclick="openProductModal(0)"><div class="prod-img-wrap"><img src="https://static.wixstatic.com/media/7fa905_8926ef9550364b36a6bec293c24523b5~mv2.jpg" alt="Mono Cartons" loading="eager"><div class="prod-zoom-hint">View</div></div><div class="prod-body"><h3>Mono Cartons</h3><p>Offset-printed folding cartons for FMCG, pharma, food and personal care.</p><div class="prod-tags"><span class="tag">FMCG</span><span class="tag">Pharma</span><span class="tag">Food</span></div><button class="prod-quote-btn" onclick="event.stopPropagation();openProductQuote('Mono Cartons')">Get Quote →</button></div></div>
+      <div class="prod-card" onclick="openProductModal(1)"><div class="prod-img-wrap"><img src="https://static.wixstatic.com/media/7fa905_bae495005fb34c20bb5d3d376f9d9b35~mv2.jpg" alt="Rigid Boxes" loading="eager"><div class="prod-zoom-hint">View</div></div><div class="prod-body"><h3>Rigid Boxes</h3><p>Premium setup boxes for luxury brands, jewellery and gifting.</p><div class="prod-tags"><span class="tag">Luxury</span><span class="tag">Beauty</span><span class="tag">Gifting</span></div><button class="prod-quote-btn" onclick="event.stopPropagation();openProductQuote('Rigid Boxes')">Get Quote →</button></div></div>
+      <div class="prod-card" onclick="openProductModal(2)"><div class="prod-img-wrap"><img src="https://static.wixstatic.com/media/895e2c_fd237721e2ba4be68f629938c7672e4e~mv2.webp" alt="Cosmetic Packaging" loading="eager"><div class="prod-zoom-hint">View</div></div><div class="prod-body"><h3>Cosmetic Packaging</h3><p>Custom beauty and skincare boxes with embossing, hot foil and soft-touch laminates.</p><div class="prod-tags"><span class="tag">Skincare</span><span class="tag">D2C</span></div><button class="prod-quote-btn" onclick="event.stopPropagation();openProductQuote('Cosmetic Packaging')">Get Quote →</button></div></div>
+      <div class="prod-card" onclick="openProductModal(3)"><div class="prod-img-wrap"><img src="https://static.wixstatic.com/media/7fa905_3e6d7a4779864489b56b4c1855af3531~mv2.png" alt="Pharma Packaging" loading="eager"><div class="prod-zoom-hint">View</div></div><div class="prod-body"><h3>Pharma Packaging</h3><p>Compliant, high-volume mono cartons and folding boxes for medicines.</p><div class="prod-tags"><span class="tag">Pharma</span><span class="tag">Healthcare</span></div><button class="prod-quote-btn" onclick="event.stopPropagation();openProductQuote('Pharma Packaging')">Get Quote →</button></div></div>
+      <div class="prod-card" onclick="openProductModal(4)"><div class="prod-img-wrap"><img src="https://static.wixstatic.com/media/895e2c_a61d60dee25d4007b06ae9155af432a2~mv2.webp" alt="Food Packaging" loading="eager"><div class="prod-zoom-hint">View</div></div><div class="prod-body"><h3>Food Packaging</h3><p>Food-safe printed cartons for bakery, confectionery and snacks.</p><div class="prod-tags"><span class="tag">Bakery</span><span class="tag">FMCG</span></div><button class="prod-quote-btn" onclick="event.stopPropagation();openProductQuote('Food Packaging')">Get Quote →</button></div></div>
+      <div class="prod-card" onclick="openProductModal(5)"><div class="prod-img-wrap"><img src="https://static.wixstatic.com/media/7fa905_dd7bbd636b494e7e82fdc6a7b43163de~mv2.jpg" alt="Gift Boxes" loading="eager"><div class="prod-zoom-hint">View</div></div><div class="prod-body"><h3>Gift &amp; Hamper Boxes</h3><p>Luxury gift boxes, hamper boxes and drawer boxes for corporate gifting.</p><div class="prod-tags"><span class="tag">Corporate</span><span class="tag">Festive</span></div><button class="prod-quote-btn" onclick="event.stopPropagation();openProductQuote('Gift and Hamper Boxes')">Get Quote →</button></div></div>
+      <div class="prod-card" onclick="openProductModal(6)"><div class="prod-img-wrap"><img src="https://static.wixstatic.com/media/7fa905_61d83ead684a4ec89e70d33cc509d362~mv2.png" alt="Corrugated Boxes" loading="eager"><div class="prod-zoom-hint">View</div></div><div class="prod-body"><h3>Corrugated Boxes</h3><p>Custom printed corrugated shipping boxes for bulk dispatch and export.</p><div class="prod-tags"><span class="tag">Shipping</span><span class="tag">Export</span></div><button class="prod-quote-btn" onclick="event.stopPropagation();openProductQuote('Corrugated Boxes')">Get Quote →</button></div></div>
+      <div class="prod-card" onclick="openProductModal(7)"><div class="prod-img-wrap"><img src="https://static.wixstatic.com/media/7fa905_4dd6d0f0e3cf45d2964bc9952b3645ab~mv2.jpg" alt="Ecommerce Mailer Boxes" loading="eager"><div class="prod-zoom-hint">View</div></div><div class="prod-body"><h3>Ecommerce Mailer Boxes</h3><p>Branded self-locking mailer boxes for D2C brands.</p><div class="prod-tags"><span class="tag">D2C</span><span class="tag">Startups</span></div><button class="prod-quote-btn" onclick="event.stopPropagation();openProductQuote('Ecommerce Mailer Boxes')">Get Quote →</button></div></div>
+      <div class="prod-card" onclick="openProductModal(8)"><div class="prod-img-wrap"><img src="https://static.wixstatic.com/media/895e2c_ba7074005e5147f583f3e9f1d67ffaeb~mv2.webp" alt="Kappa Board Boxes" loading="eager"><div class="prod-zoom-hint">View</div></div><div class="prod-body"><h3>Kappa Board Boxes</h3><p>High-quality Kappa/greyboard boxes for watches, electronics and premium products.</p><div class="prod-tags"><span class="tag">Premium</span><span class="tag">Watches</span></div><button class="prod-quote-btn" onclick="event.stopPropagation();openProductQuote('Kappa Board Boxes')">Get Quote →</button></div></div>
+      <div class="prod-card" onclick="openProductModal(9)"><div class="prod-img-wrap"><img src="https://static.wixstatic.com/media/895e2c_a0fc695fb6b74aa1a40665edf4c6fa02~mv2.gif" alt="POS Display Units" loading="eager"><div class="prod-zoom-hint">View</div></div><div class="prod-body"><h3>POS Display Units</h3><p>Retail point-of-sale displays, counter displays and shelf-ready packaging.</p><div class="prod-tags"><span class="tag">Retail</span><span class="tag">FMCG</span></div><button class="prod-quote-btn" onclick="event.stopPropagation();openProductQuote('POS Display Units')">Get Quote →</button></div></div>
+      <div class="prod-card" onclick="openProductModal(10)"><div class="prod-img-wrap"><img src="https://static.wixstatic.com/media/895e2c_9835a8472a314843b035854de096b07f~mv2.webp" alt="Spirits Packaging" loading="eager"><div class="prod-zoom-hint">View</div></div><div class="prod-body"><h3>Spirits &amp; Liquor Packaging</h3><p>Premium cartons and rigid boxes for whisky, spirits and wine.</p><div class="prod-tags"><span class="tag">Spirits</span><span class="tag">Premium</span></div><button class="prod-quote-btn" onclick="event.stopPropagation();openProductQuote('Spirits and Liquor Packaging')">Get Quote →</button></div></div>
+      <div class="prod-card" onclick="openProductModal(11)"><div class="prod-img-wrap"><img src="https://static.wixstatic.com/media/7fa905_257c6cc9c92c41e2b7ede454cbc9dbe6~mv2.png" alt="Jewellery Packaging" loading="eager"><div class="prod-zoom-hint">View</div></div><div class="prod-body"><h3>Jewellery Packaging</h3><p>Velvet insert boxes, rigid display boxes and gift sets for jewellery brands.</p><div class="prod-tags"><span class="tag">Jewellery</span><span class="tag">Luxury</span></div><button class="prod-quote-btn" onclick="event.stopPropagation();openProductQuote('Jewellery Packaging')">Get Quote →</button></div></div>
     </div>
   </div>
 </section>
