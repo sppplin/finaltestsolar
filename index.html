@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -3779,32 +3780,25 @@ var ESPO_URL     = 'https://crm.solarprintprocess.com';
 var ESPO_API_KEY = 'c3a40f6b3be84f4661496a6a8188724d';
 
 function sendToEspoCRM(lead) {
+  // Proxy through Google Apps Script (avoids CORS browser restriction)
+  if (!SHEETS_URL || SHEETS_URL === 'YOUR_GOOGLE_SCRIPT_URL') return;
   var nameParts = (lead.name || '').trim().split(' ');
-  var firstName = nameParts[0] || lead.name;
-  var lastName  = nameParts.slice(1).join(' ') || '.';
-
-  fetch(ESPO_URL + '/api/v1/Lead', {
+  fetch(SHEETS_URL, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Api-Key':    ESPO_API_KEY
-    },
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      firstName:   firstName,
-      lastName:    lastName,
-      phoneNumber: lead.phone,
-      accountName: lead.company,
-      source:      'Web Site',
-      status:      'New',
-      description: 'Product: '   + (lead.product || 'General')     + '\n'
-                 + 'GST: '       + (lead.gst     || 'Not provided') + '\n'
-                 + 'Form: '      + (lead.source  || '')             + '\n'
-                 + 'Page: '      + (lead.page    || '')
+      ts: lead.ts, name: lead.name, phone: lead.phone,
+      company: lead.company, gst: lead.gst,
+      source: lead.source, product: lead.product, page: lead.page,
+      _espo: true,
+      _espoUrl:    ESPO_URL,
+      _espoApiKey: ESPO_API_KEY,
+      _firstName:  nameParts[0] || lead.name,
+      _lastName:   nameParts.slice(1).join(' ') || '.',
+      _description:'Product: '+(lead.product||'General')+'|GST: '+(lead.gst||'None')+'|Form: '+(lead.source||'')+'|Page: '+(lead.page||'')
     })
-  })
-  .then(function(r){ return r.json(); })
-  .then(function(d){ console.log('[EspoCRM] Lead created, ID:', d.id); })
-  .catch(function(e){ console.warn('[EspoCRM] Could not connect:', e.message); });
+  }).catch(function(){});
 }
 
 // ══════════════════════════════════════════
