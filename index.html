@@ -461,14 +461,10 @@ a{color:inherit;text-decoration:none;}
 .vss-vid-cap{background:rgba(0,0,0,.7);color:rgba(255,255,255,.85);font-size:12px;font-weight:600;padding:10px 14px;display:flex;align-items:center;gap:8px;border-top:1px solid rgba(255,255,255,.08);}
 .vss-cap-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:blink 1.8s ease-in-out infinite;}
 .vss-reels-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-align:center;margin:40px 0 20px;}
-.vss-reels-scroll{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 24px 16px;scrollbar-width:none;max-width:1400px;margin:0 auto;}
-.vss-reels-scroll::-webkit-scrollbar{display:none;}
-.vss-reel-item{flex-shrink:0;width:240px;aspect-ratio:9/16;border-radius:14px;overflow:hidden;position:relative;background:#000;scroll-snap-align:start;cursor:pointer;}
-@media(min-width:900px){.vss-reel-item{width:280px;}}
-.vss-reel-item video{width:100%;height:100%;object-fit:cover;display:block;}
-.vss-reel-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.25);transition:opacity .2s;}
-.vss-reel-item:hover .vss-reel-overlay{opacity:0;}
-.vss-play-ic{width:44px;height:44px;color:#fff;opacity:.85;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5));}
+.vss-reels-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px;margin:0 auto;}
+@media(max-width:700px){.vss-reels-grid{grid-template-columns:1fr;max-width:480px;}}
+.vss-reel-wrap{border-radius:12px;overflow:hidden;background:#000;display:flex;align-items:stretch;}
+.vss-reel-wrap .instagram-media{border-radius:12px !important;min-width:0 !important;}
 .field-err{display:none;font-size:11.5px;color:#e53e3e;margin-top:4px;font-weight:500;}
 .field-ok{display:none;font-size:11.5px;color:#16a34a;margin-top:4px;font-weight:700;}
 .fg input.is-invalid{border-color:#e53e3e !important;}
@@ -785,25 +781,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="vss-vid-box"><video src="https://video.wixstatic.com/video/895e2c_786c3c9b5c764342b4f49ea639f8b2ef/1080p/mp4/file.mp4" autoplay muted loop playsinline preload="auto" poster="https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp"></video><div class="vss-vid-cap"><span class="vss-cap-dot"></span>In-House Die-Cutting &amp; Finishing</div></div>
     <div class="vss-vid-box"><video src="https://video.wixstatic.com/video/895e2c_6eb898c92ef04b80935b2681db96ed36/1080p/mp4/file.mp4" autoplay muted loop playsinline preload="auto" poster="https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp"></video><div class="vss-vid-cap"><span class="vss-cap-dot"></span>Lamination &amp; Premium Finishing</div></div>
   </div>
-  <div class="vss-reels-label">From Our Factory Floor</div>
-  <div class="vss-reels-scroll">
-    <div class="vss-reel-item">
-      <video src="https://video.wixstatic.com/video/895e2c_86e42e0301ed4330970324ac77022bc1/720p/mp4/file.mp4" muted loop playsinline preload="metadata" poster="https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp" onclick="this.paused?this.play():this.pause()"></video>
-      <div class="vss-reel-overlay"><i data-lucide="play" class="vss-play-ic"></i></div>
+  <div class="vss-reels-label">From Our Instagram</div>
+  <div class="vss-reels-grid">
+    <div class="vss-reel-wrap">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C5lIYYHyElh/" data-instgrm-version="14" style="background:#000;border:0;border-radius:12px;box-shadow:none;margin:0;max-width:100%;min-width:0;padding:0;width:100%;"></blockquote>
     </div>
-    <div class="vss-reel-item">
-      <video src="https://video.wixstatic.com/video/895e2c_786c3c9b5c764342b4f49ea639f8b2ef/1080p/mp4/file.mp4" muted loop playsinline preload="metadata" poster="https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp" onclick="this.paused?this.play():this.pause()"></video>
-      <div class="vss-reel-overlay"><i data-lucide="play" class="vss-play-ic"></i></div>
+    <div class="vss-reel-wrap">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C4xWpRmSJUU/" data-instgrm-version="14" style="background:#000;border:0;border-radius:12px;box-shadow:none;margin:0;max-width:100%;min-width:0;padding:0;width:100%;"></blockquote>
     </div>
-    <div class="vss-reel-item">
-      <video src="https://video.wixstatic.com/video/895e2c_6eb898c92ef04b80935b2681db96ed36/1080p/mp4/file.mp4" muted loop playsinline preload="metadata" poster="https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp" onclick="this.paused?this.play():this.pause()"></video>
-      <div class="vss-reel-overlay"><i data-lucide="play" class="vss-play-ic"></i></div>
+    <div class="vss-reel-wrap">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CjxKjKMIkeT/" data-instgrm-version="14" style="background:#000;border:0;border-radius:12px;box-shadow:none;margin:0;max-width:100%;min-width:0;padding:0;width:100%;"></blockquote>
     </div>
-    <div class="vss-reel-item">
-      <video src="https://video.wixstatic.com/video/895e2c_86e42e0301ed4330970324ac77022bc1/720p/mp4/file.mp4" muted loop playsinline preload="metadata" poster="https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp" onclick="this.paused?this.play():this.pause()"></video>
-      <div class="vss-reel-overlay"><i data-lucide="play" class="vss-play-ic"></i></div>
+    <div class="vss-reel-wrap">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Ch4b7nVDEkv/" data-instgrm-version="14" style="background:#000;border:0;border-radius:12px;box-shadow:none;margin:0;max-width:100%;min-width:0;padding:0;width:100%;"></blockquote>
     </div>
   </div>
+</div>
+<script async src="//www.instagram.com/embed.js"></script>
 
 <!-- CATALOGUE -->
 <div class="cat-sec">
@@ -1611,33 +1605,7 @@ function showToast(msg){
 </script>
 <script>
 if(typeof lucide !== 'undefined') lucide.createIcons();
-document.addEventListener('DOMContentLoaded', function(){
-  if(typeof lucide !== 'undefined') lucide.createIcons();
-  // Reel autoplay on hover/visible
-  var reelItems = document.querySelectorAll('.vss-reel-item');
-  reelItems.forEach(function(item){
-    var video = item.querySelector('video');
-    var overlay = item.querySelector('.vss-reel-overlay');
-    item.addEventListener('mouseenter', function(){
-      video.play();
-      overlay.style.opacity='0';
-    });
-    item.addEventListener('mouseleave', function(){
-      video.pause();
-      overlay.style.opacity='1';
-    });
-    // Mobile: autoplay when scrolled into view
-    if('IntersectionObserver' in window){
-      var obs = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){ video.play(); overlay.style.opacity='0'; }
-          else{ video.pause(); overlay.style.opacity='1'; }
-        });
-      },{threshold:0.6});
-      obs.observe(item);
-    }
-  });
-});
+document.addEventListener('DOMContentLoaded', function(){ if(typeof lucide !== 'undefined') lucide.createIcons(); });
 </script>
 </body>
 </html>
