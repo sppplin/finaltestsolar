@@ -43,6 +43,7 @@ window.SP = {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -71,13 +72,15 @@ a{color:inherit;text-decoration:none;}
 .site-logo-img{height:44px;width:auto;max-width:180px;object-fit:contain;display:block;}
 .logo-sub{font-size:10.5px;color:var(--t3);text-transform:uppercase;letter-spacing:.04em;font-weight:500;}
 .nav-acts{display:flex;align-items:center;gap:10px;}
-.btn-ghost{font-size:13px;font-weight:700;color:var(--ink);padding:8px 16px;border:1.5px solid var(--border);border-radius:var(--r);display:flex;align-items:center;gap:7px;transition:border-color .15s,background .15s;white-space:nowrap;}
+.btn-ghost{font-size:13px;font-weight:700;color:var(--ink);padding:8px 16px;border:1.5px solid var(--border);border-radius:var(--r);display:flex;align-items:center;gap:7px;transition:border-color .15s,background .15s;white-space:nowrap;animation:btnCallBlink 1.8s ease-in-out infinite;}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
-.btn-wa-nav{font-size:13.5px;font-weight:700;color:#fff;background:var(--wa);padding:9px 20px;border-radius:var(--r);transition:background .15s,transform .12s;white-space:nowrap;display:inline-flex;align-items:center;gap:7px;}
+.btn-wa-nav{font-size:13.5px;font-weight:700;color:#fff;background:var(--wa);padding:9px 20px;border-radius:var(--r);transition:background .15s,transform .12s;white-space:nowrap;display:inline-flex;align-items:center;gap:7px;animation:btnWaBlink 1.8s ease-in-out infinite;}
 .btn-wa-nav:hover{background:#1fba58;transform:translateY(-1px);}
+@keyframes btnWaBlink{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}50%{box-shadow:0 0 0 6px rgba(37,211,102,0.35);}}
+@keyframes btnCallBlink{0%,100%{box-shadow:0 0 0 0 rgba(240,165,0,0);}50%{box-shadow:0 0 0 6px rgba(240,165,0,0.35);}}
 @media(max-width:540px){.btn-ghost{display:none;}.logo-sub{display:none;}}
 .hero{position:relative;background:linear-gradient(160deg,#0d0d0d 0%,#151008 55%,#1a1200 100%);overflow:hidden;}
-.hero-bg-img{position:absolute;inset:0;z-index:0;background:url("https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp") center/cover no-repeat;opacity:.28;}
+.hero-bg-img{position:absolute;inset:0;z-index:0;background:url("https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp") center/cover no-repeat;opacity:.45;}
 .hero-overlay{position:absolute;inset:0;z-index:1;background:rgba(0,0,0,.55);}
 .hero-inner{position:relative;z-index:2;width:100%;padding:40px 16px 90px;display:flex;flex-direction:column;gap:0;box-sizing:border-box;}
 @media(min-width:900px){.hero-inner{display:grid;grid-template-columns:1fr 400px;gap:40px;align-items:center;padding:64px 48px 56px;max-width:none;margin:0;}}
@@ -142,13 +145,16 @@ a{color:inherit;text-decoration:none;}
 .stat-n{font-size:13px;font-weight:900;color:#000;line-height:1;white-space:nowrap;}
 .stat-icon{font-size:16px;}
 .prod-sec{background:#fff;}
+.prod-sec .wrap{max-width:1400px;}
 .prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:32px;}
 @media(min-width:600px){.prod-grid{grid-template-columns:repeat(3,1fr);}}
-@media(min-width:900px){.prod-grid{grid-template-columns:repeat(4,1fr);}}
+@media(min-width:900px){.prod-grid{grid-template-columns:repeat(4,1fr);gap:20px;}}
+@media(min-width:1200px){.prod-sec .wrap{padding:0 48px;}}
 .prod-card{border:1.5px solid var(--border2);border-radius:8px;overflow:hidden;background:#fff;transition:box-shadow .18s,border-color .18s,transform .15s;cursor:pointer;}
 .prod-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 28px rgba(240,165,0,.14);}
 .prod-img-wrap{position:relative;overflow:hidden;background:#f8f8f8;height:200px;display:flex;align-items:center;justify-content:center;}
 .prod-img-wrap img{width:100%;height:200px;object-fit:contain;object-position:center;display:block;transition:transform .3s;padding:8px;}
+@media(min-width:900px){.prod-img-wrap{height:240px;}.prod-img-wrap img{height:240px;}}
 .prod-card:hover .prod-img-wrap img{transform:scale(1.04);}
 .prod-zoom-hint{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.6);color:#fff;font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:20px;display:flex;align-items:center;gap:4px;opacity:0;transition:opacity .2s;pointer-events:none;}
 .prod-card:hover .prod-zoom-hint{opacity:1;}
@@ -398,7 +404,8 @@ a{color:inherit;text-decoration:none;}
 .pmodal-box{background:#fff;border-radius:10px;max-width:680px;width:100%;overflow:hidden;position:relative;animation:modalIn .22s ease;}
 @keyframes modalIn{from{transform:scale(.94);opacity:0;}to{transform:scale(1);opacity:1;}}
 .pmodal-close{position:absolute;top:10px;right:12px;z-index:10;background:rgba(0,0,0,.55);color:#fff;border:none;width:30px;height:30px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
-.pmodal-img-wrap img{width:100%;max-height:340px;object-fit:cover;display:block;}
+.pmodal-img-wrap{background:#f5f5f5;}
+.pmodal-img-wrap img{width:100%;max-height:420px;object-fit:contain;display:block;padding:16px;box-sizing:border-box;}
 .pmodal-info{padding:20px 22px;}
 .pmodal-name{font-size:18px;font-weight:900;color:var(--ink);margin-bottom:6px;letter-spacing:-.02em;}
 .pmodal-desc{font-size:13.5px;color:var(--t3);line-height:1.65;margin-bottom:18px;}
@@ -453,6 +460,11 @@ a{color:inherit;text-decoration:none;}
 @media(max-width:700px){.vss-vid-box video{height:220px;}}
 .vss-vid-cap{background:rgba(0,0,0,.7);color:rgba(255,255,255,.85);font-size:12px;font-weight:600;padding:10px 14px;display:flex;align-items:center;gap:8px;border-top:1px solid rgba(255,255,255,.08);}
 .vss-cap-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:blink 1.8s ease-in-out infinite;}
+.vss-reels-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-align:center;margin:40px 0 20px;}
+.vss-reels-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px;margin:0 auto;}
+@media(max-width:700px){.vss-reels-grid{grid-template-columns:1fr;max-width:480px;}}
+.vss-reel-wrap{border-radius:12px;overflow:hidden;background:#000;display:flex;align-items:stretch;}
+.vss-reel-wrap .instagram-media{border-radius:12px !important;min-width:0 !important;}
 .field-err{display:none;font-size:11.5px;color:#e53e3e;margin-top:4px;font-weight:500;}
 .field-ok{display:none;font-size:11.5px;color:#16a34a;margin-top:4px;font-weight:700;}
 .fg input.is-invalid{border-color:#e53e3e !important;}
@@ -479,13 +491,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="ei-overlay" id="eiOverlay">
   <div class="ei-box">
     <button class="ei-close" onclick="closeEI()">✕</button>
-    <div class="ei-icon">⚡</div>
+    <div class="ei-icon"><i data-lucide="zap" style="width:28px;height:28px;color:var(--gold);"></i></div>
     <div class="ei-title">Wait — Get Your <em>Free Quote</em><br>Before You Go</div>
     <div class="ei-sub">Leave your number. Our packaging expert calls you back within 2 hours with factory pricing — no middlemen, no markups.</div>
     <form class="ei-form" onsubmit="submitEI(event)">
       <input type="text" id="eiName" placeholder="Your Name" required>
       <input type="tel" id="eiPhone" placeholder="Your WhatsApp Number" required>
-      <button type="submit" class="ei-btn">📞 Get My Free Factory Quote</button>
+      <button type="submit" class="ei-btn"><i data-lucide="phone" style="width:15px;height:15px;vertical-align:middle;margin-right:6px;"></i>Get My Free Factory Quote</button>
     </form>
     <div class="ei-skip" onclick="closeEI()">No thanks, I'll pay more elsewhere</div>
   </div>
@@ -610,12 +622,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="field-err" id="errGst">GST format: 22AAAAA0000A1Z5 (15 characters)</div>
             <div class="field-ok" id="okGst">✓ Valid GST number</div>
           </div>
-          <button class="btn-cta-hero" type="button" onclick="submitHeroForm()">📞 Get My Factory Price in 2 Hours</button>
+          <button class="btn-cta-hero" type="button" onclick="submitHeroForm()"><i data-lucide="phone" style="width:15px;height:15px;vertical-align:middle;margin-right:6px;"></i>Get My Factory Price in 2 Hours</button>
           <p class="form-privacy">By submitting, you agree to our <a href="privacy-policy.html" target="_blank">Privacy Policy</a> &amp; <a href="terms.html" target="_blank">Terms</a>.</p>
         </div>
         <div class="form-step" id="fStep2">
           <div style="text-align:center;padding:20px 0;">
-            <div style="font-size:44px;margin-bottom:12px;">✅</div>
+            <div style="font-size:44px;margin-bottom:12px;"><i data-lucide="check-circle-2" style="width:44px;height:44px;color:#25D366;"></i></div>
             <div style="font-size:17px;font-weight:900;color:var(--ink);margin-bottom:8px;">Request Received!</div>
             <div style="font-size:13px;color:var(--t3);line-height:1.7;margin-bottom:20px;">Our packaging expert will call you within 2 hours with factory-direct pricing.</div>
             <a href="https://wa.me/919871713676?text=Hello%2C+I+just+submitted+a+quote+request" class="btn-wa" target="_blank" rel="noopener" style="display:inline-flex;margin:0 auto;justify-content:center;">Also WhatsApp Us Now</a>
@@ -638,12 +650,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- STATS BAR -->
 <div class="statsbar">
   <div class="stats-grid">
-    <div class="stat"><span class="stat-icon">🏭</span><span class="stat-n">Established 1975</span></div>
-    <div class="stat"><span class="stat-icon">📍</span><span class="stat-n">C-10 Sector 85, Noida</span></div>
-    <div class="stat"><span class="stat-icon">🏗️</span><span class="stat-n">200,000 Sq Ft Factory</span></div>
-    <div class="stat"><span class="stat-icon">🤝</span><span class="stat-n">500+ B2B Clients</span></div>
-    <div class="stat"><span class="stat-icon">🚚</span><span class="stat-n">Pan India Delivery</span></div>
-    <div class="stat"><span class="stat-icon">📦</span><span class="stat-n">300+ MOQ</span></div>
+    <div class="stat"><span class="stat-icon"><i data-lucide="factory" style="width:16px;height:16px;"></i></span><span class="stat-n">Established 1975</span></div>
+    <div class="stat"><span class="stat-icon"><i data-lucide="map-pin" style="width:16px;height:16px;"></i></span><span class="stat-n">C-10 Sector 85, Noida</span></div>
+    <div class="stat"><span class="stat-icon"><i data-lucide="building-2" style="width:16px;height:16px;"></i></span><span class="stat-n">200,000 Sq Ft Factory</span></div>
+    <div class="stat"><span class="stat-icon"><i data-lucide="handshake" style="width:16px;height:16px;"></i></span><span class="stat-n">500+ B2B Clients</span></div>
+    <div class="stat"><span class="stat-icon"><i data-lucide="truck" style="width:16px;height:16px;"></i></span><span class="stat-n">Pan India Delivery</span></div>
+    <div class="stat"><span class="stat-icon"><i data-lucide="package" style="width:16px;height:16px;"></i></span><span class="stat-n">300+ MOQ</span></div>
   </div>
 </div>
 
@@ -769,7 +781,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="vss-vid-box"><video src="https://video.wixstatic.com/video/895e2c_786c3c9b5c764342b4f49ea639f8b2ef/1080p/mp4/file.mp4" autoplay muted loop playsinline preload="auto" poster="https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp"></video><div class="vss-vid-cap"><span class="vss-cap-dot"></span>In-House Die-Cutting &amp; Finishing</div></div>
     <div class="vss-vid-box"><video src="https://video.wixstatic.com/video/895e2c_6eb898c92ef04b80935b2681db96ed36/1080p/mp4/file.mp4" autoplay muted loop playsinline preload="auto" poster="https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp"></video><div class="vss-vid-cap"><span class="vss-cap-dot"></span>Lamination &amp; Premium Finishing</div></div>
   </div>
+  <div class="vss-reels-label">From Our Instagram</div>
+  <div class="vss-reels-grid">
+    <div class="vss-reel-wrap">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C5lIYYHyElh/" data-instgrm-version="14" style="background:#000;border:0;border-radius:12px;box-shadow:none;margin:0;max-width:100%;min-width:0;padding:0;width:100%;"></blockquote>
+    </div>
+    <div class="vss-reel-wrap">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C4xWpRmSJUU/" data-instgrm-version="14" style="background:#000;border:0;border-radius:12px;box-shadow:none;margin:0;max-width:100%;min-width:0;padding:0;width:100%;"></blockquote>
+    </div>
+    <div class="vss-reel-wrap">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CjxKjKMIkeT/" data-instgrm-version="14" style="background:#000;border:0;border-radius:12px;box-shadow:none;margin:0;max-width:100%;min-width:0;padding:0;width:100%;"></blockquote>
+    </div>
+    <div class="vss-reel-wrap">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Ch4b7nVDEkv/" data-instgrm-version="14" style="background:#000;border:0;border-radius:12px;box-shadow:none;margin:0;max-width:100%;min-width:0;padding:0;width:100%;"></blockquote>
+    </div>
+  </div>
 </div>
+<script async src="//www.instagram.com/embed.js"></script>
 
 <!-- CATALOGUE -->
 <div class="cat-sec">
@@ -787,15 +815,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="cat-inc-item"><span class="cat-check">✓</span> Sample photos of finished work</div>
       </div>
       <div class="cat-preview">
-        <div class="cat-card"><div class="cat-card-icon">📑</div><div class="cat-card-title">Product Specs</div><div class="cat-card-sub">All 18+ types</div></div>
-        <div class="cat-card"><div class="cat-card-icon">🎨</div><div class="cat-card-title">Finish Samples</div><div class="cat-card-sub">Foil, UV, matte</div></div>
-        <div class="cat-card"><div class="cat-card-icon">📏</div><div class="cat-card-title">Size Guide</div><div class="cat-card-sub">Standard sizes</div></div>
-        <div class="cat-card"><div class="cat-card-icon">💰</div><div class="cat-card-title">Price Ranges</div><div class="cat-card-sub">MOQ pricing</div></div>
+        <div class="cat-card"><div class="cat-card-icon"><i data-lucide="file-list" style="width:28px;height:28px;color:var(--gold);"></i></div><div class="cat-card-title">Product Specs</div><div class="cat-card-sub">All 18+ types</div></div>
+        <div class="cat-card"><div class="cat-card-icon"><i data-lucide="palette" style="width:28px;height:28px;color:var(--gold);"></i></div><div class="cat-card-title">Finish Samples</div><div class="cat-card-sub">Foil, UV, matte</div></div>
+        <div class="cat-card"><div class="cat-card-icon"><i data-lucide="ruler" style="width:28px;height:28px;color:var(--gold);"></i></div><div class="cat-card-title">Size Guide</div><div class="cat-card-sub">Standard sizes</div></div>
+        <div class="cat-card"><div class="cat-card-icon"><i data-lucide="tag" style="width:28px;height:28px;color:var(--gold);"></i></div><div class="cat-card-title">Price Ranges</div><div class="cat-card-sub">MOQ pricing</div></div>
       </div>
     </div>
     <div>
       <div style="background:var(--bg2);border:1.5px solid var(--border2);border-radius:8px;padding:28px 24px;">
-        <div style="font-size:14px;font-weight:900;color:var(--ink);margin-bottom:6px;">📥 Get the Catalogue Free</div>
+        <div style="font-size:14px;font-weight:900;color:var(--ink);margin-bottom:6px;display:flex;align-items:center;gap:7px;"><i data-lucide="download" style="width:16px;height:16px;color:var(--gold);"></i> Get the Catalogue Free</div>
         <div style="font-size:12.5px;color:var(--t3);margin-bottom:20px;">We'll send it to your WhatsApp immediately.</div>
         <form id="catForm" onsubmit="submitCat(event)">
           <div class="fg"><label style="color:var(--ink2);">Your Name *</label><input type="text" id="catName" placeholder="Rajesh Sharma" required></div>
@@ -810,7 +838,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <option>Jewellery / Watches</option><option>Corporate Gifting</option><option>Other</option>
             </select>
           </div>
-          <button type="submit" class="btn-dl">📲 Send Catalogue to My WhatsApp</button>
+          <button type="submit" class="btn-dl"><i data-lucide="send" style="width:14px;height:14px;vertical-align:middle;margin-right:6px;"></i>Send Catalogue to My WhatsApp</button>
           <div class="cat-note">We don't share or sell data. <a href="privacy-policy.html" target="_blank" style="color:var(--gold);">Privacy Policy</a></div>
         </form>
       </div>
@@ -865,8 +893,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="sub" style="margin:0 auto;">See our Noida plant in action.</p>
     </div>
     <div class="fac-video-grid">
-      <div class="fac-vid-card"><video src="https://video.wixstatic.com/video/895e2c_786c3c9b5c764342b4f49ea639f8b2ef/1080p/mp4/file.mp4" autoplay muted loop playsinline preload="auto" poster="https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp" style="width:100%;height:100%;object-fit:cover;display:block;"></video><div class="fac-caption"><span class="fac-cap-icon">🖨️</span><div><div class="fac-cap-title">High-Speed Offset Press in Action</div><div class="fac-cap-sub">Up to 10,000 sheets/hour · 6-colour CMYK + Pantone</div></div></div></div>
-      <div class="fac-vid-card"><video src="https://video.wixstatic.com/video/895e2c_6eb898c92ef04b80935b2681db96ed36/1080p/mp4/file.mp4" autoplay muted loop playsinline preload="auto" poster="https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp" style="width:100%;height:100%;object-fit:cover;display:block;"></video><div class="fac-caption"><span class="fac-cap-icon">⚙️</span><div><div class="fac-cap-title">In-House Finishing &amp; Die-Cutting</div><div class="fac-cap-sub">Lamination · Foiling · Embossing · Assembly</div></div></div></div>
+      <div class="fac-vid-card"><video src="https://video.wixstatic.com/video/895e2c_786c3c9b5c764342b4f49ea639f8b2ef/1080p/mp4/file.mp4" autoplay muted loop playsinline preload="auto" poster="https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp" style="width:100%;height:100%;object-fit:cover;display:block;"></video><div class="fac-caption"><span class="fac-cap-icon"><i data-lucide="printer" style="width:18px;height:18px;color:#fff;"></i></span><div><div class="fac-cap-title">High-Speed Offset Press in Action</div><div class="fac-cap-sub">Up to 10,000 sheets/hour · 6-colour CMYK + Pantone</div></div></div></div>
+      <div class="fac-vid-card"><video src="https://video.wixstatic.com/video/895e2c_6eb898c92ef04b80935b2681db96ed36/1080p/mp4/file.mp4" autoplay muted loop playsinline preload="auto" poster="https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp" style="width:100%;height:100%;object-fit:cover;display:block;"></video><div class="fac-caption"><span class="fac-cap-icon"><i data-lucide="settings" style="width:18px;height:18px;color:#fff;"></i></span><div><div class="fac-cap-title">In-House Finishing &amp; Die-Cutting</div><div class="fac-cap-sub">Lamination · Foiling · Embossing · Assembly</div></div></div></div>
     </div>
     <div class="fac-banner-row">
       <div class="fac-banner-img"><img src="https://static.wixstatic.com/media/895e2c_df1ccb10ef894738b00c7603b847278d~mv2.webp" alt="Solar Print factory floor" loading="eager"><div class="fac-banner-overlay"><div class="fac-banner-tag">Noida Plant · C-10 Sector 85</div><div class="fac-banner-headline">India's Most Trusted<br>Packaging Manufacturer</div><a href="https://wa.me/919871713676?text=Hello%2C+I+want+to+visit+the+Solar+Print+factory" target="_blank" rel="noopener" class="fac-banner-btn">Schedule a Factory Visit →</a></div></div>
@@ -928,12 +956,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 class="h2">Every Finish. Every Material.<br><em>In-House.</em></h2>
     <p class="sub">No outsourcing. No quality loss. Every capability under our 200,000 sq ft roof.</p>
     <div class="cap-grid" style="margin-top:32px;">
-      <div class="cap-card"><div class="cap-icon">🖨️</div><h3>Offset &amp; Digital Printing</h3><p>High-speed, high-definition offset printing. Up to 6 colours + varnish. CMYK and Pantone matched.</p></div>
-      <div class="cap-card"><div class="cap-icon">✨</div><h3>Hot Foil Stamping</h3><p>Gold, silver, holographic and custom colour foils. Flat and embossed foil options for premium packaging.</p></div>
-      <div class="cap-card"><div class="cap-icon">🏔️</div><h3>Embossing &amp; Debossing</h3><p>Blind embossing, registered embossing and debossing. Creates tactile, high-end packaging feel.</p></div>
-      <div class="cap-card"><div class="cap-icon">🌟</div><h3>Spot UV &amp; Aqueous Coating</h3><p>Gloss spot UV, matte UV, soft-touch and aqueous coating options for visual contrast and protection.</p></div>
-      <div class="cap-card"><div class="cap-icon">🪞</div><h3>Soft-Touch Lamination</h3><p>Matte soft-touch, gloss and textured lamination films. Industry-preferred for premium cosmetics packaging.</p></div>
-      <div class="cap-card"><div class="cap-icon">✂️</div><h3>Die Cutting &amp; Finishing</h3><p>CNC-precision die cutting, window patching, magnetic closure fitting and all assembly in-house.</p></div>
+      <div class="cap-card"><div class="cap-icon"><i data-lucide="printer" style="width:28px;height:28px;color:var(--gold);"></i></div><h3>Offset &amp; Digital Printing</h3><p>High-speed, high-definition offset printing. Up to 6 colours + varnish. CMYK and Pantone matched.</p></div>
+      <div class="cap-card"><div class="cap-icon"><i data-lucide="sparkles" style="width:22px;height:22px;color:var(--gold);"></i></div><h3>Hot Foil Stamping</h3><p>Gold, silver, holographic and custom colour foils. Flat and embossed foil options for premium packaging.</p></div>
+      <div class="cap-card"><div class="cap-icon"><i data-lucide="layers" style="width:22px;height:22px;color:var(--gold);"></i></div><h3>Embossing &amp; Debossing</h3><p>Blind embossing, registered embossing and debossing. Creates tactile, high-end packaging feel.</p></div>
+      <div class="cap-card"><div class="cap-icon"><i data-lucide="sun" style="width:22px;height:22px;color:var(--gold);"></i></div><h3>Spot UV &amp; Aqueous Coating</h3><p>Gloss spot UV, matte UV, soft-touch and aqueous coating options for visual contrast and protection.</p></div>
+      <div class="cap-card"><div class="cap-icon"><i data-lucide="square" style="width:22px;height:22px;color:var(--gold);"></i></div><h3>Soft-Touch Lamination</h3><p>Matte soft-touch, gloss and textured lamination films. Industry-preferred for premium cosmetics packaging.</p></div>
+      <div class="cap-card"><div class="cap-icon"><i data-lucide="scissors" style="width:22px;height:22px;color:var(--gold);"></i></div><h3>Die Cutting &amp; Finishing</h3><p>CNC-precision die cutting, window patching, magnetic closure fitting and all assembly in-house.</p></div>
     </div>
   </div>
 </section>
@@ -974,7 +1002,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 class="h2">Get Your <em>Packaging</em> Quote Today</h2>
     <p class="sub">Call or WhatsApp us directly. We respond within 2 hours, Monday to Saturday.</p>
     <div class="btm-acts">
-      <a href="tel:+919871713676" class="btn-wht" onclick="SP.trackCall('bottom_cta')">📞 Call +91 98717 13676</a>
+      <a href="tel:+919871713676" class="btn-wht" onclick="SP.trackCall('bottom_cta')"><i data-lucide="phone" style="width:15px;height:15px;vertical-align:middle;margin-right:7px;"></i>Call +91 98717 13676</a>
       <a href="https://wa.me/919871713676?text=Hello%2C+I+need+a+custom+packaging+quote" class="btn-wa" target="_blank" rel="noopener" onclick="SP.trackWhatsApp('bottom_cta')">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp Us Now
@@ -992,9 +1020,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="f-brand-name">Solar Print Process Pvt. Ltd.</div>
         <div class="f-brand-sub">Established 1975. Direct packaging manufacturer in Noida. 200,000 sq ft in-house facility. Serving 16+ industries pan-India.</div>
         <div class="f-links">
-          <a href="tel:+919871713676">📞 +91 98717 13676</a>
+          <a href="tel:+919871713676"><i data-lucide="phone" style="width:13px;height:13px;vertical-align:middle;margin-right:5px;"></i>+91 98717 13676</a>
           <a href="/cdn-cgi/l/email-protection#6e070008012e1d01020f1c1e1c07001a400d0103">✉ <span class="__cf_email__" data-cfemail="90f9fef6ffd0e3fffcf1e2e0e2f9fee4bef3fffd">[email&#160;protected]</span></a>
-          <a href="https://wa.me/919871713676?text=Hello%2C+I+need+a+packaging+quote" target="_blank" rel="noopener" style="color:#4ade80;font-weight:700;">💬 WhatsApp for Quote</a>
+          <a href="https://wa.me/919871713676?text=Hello%2C+I+need+a+packaging+quote" target="_blank" rel="noopener" style="color:#4ade80;font-weight:700;"><i data-lucide="message-circle" style="width:13px;height:13px;vertical-align:middle;margin-right:5px;"></i>WhatsApp for Quote</a>
         </div>
       </div>
       <div>
@@ -1018,7 +1046,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- STICKY MOBILE BAR -->
 <div class="mob-bar">
-  <a href="tel:+919871713676" class="mob-quote" onclick="SP.trackCall('mobile_bar')">📞 Call Now</a>
+  <a href="tel:+919871713676" class="mob-quote" onclick="SP.trackCall('mobile_bar')"><i data-lucide="phone" style="width:14px;height:14px;vertical-align:middle;margin-right:5px;"></i>Call Now</a>
   <a href="https://wa.me/919871713676?text=Hello%2C+I+need+a+packaging+quote" class="mob-wa" target="_blank" rel="noopener" onclick="SP.trackWhatsApp('mobile_bar')">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     WhatsApp Quote
@@ -1034,7 +1062,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="pmodal-name" id="pmodalName"></div>
       <div class="pmodal-desc" id="pmodalDesc"></div>
       <div class="pmodal-acts">
-        <button class="pmodal-quote-btn" onclick="openProductQuote(document.getElementById('pmodalName').textContent)">📋 Get a Quote for This Product</button>
+        <button class="pmodal-quote-btn" onclick="openProductQuote(document.getElementById('pmodalName').textContent)"><i data-lucide="file-text" style="width:15px;height:15px;vertical-align:middle;margin-right:6px;"></i>Get a Quote for This Product</button>
         <a id="pmodalWa" href="#" target="_blank" class="pmodal-wa-btn">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           WhatsApp Instead
@@ -1049,18 +1077,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="qmodal-box">
     <button class="qmodal-close" onclick="closeQuoteModal()">✕</button>
     <div id="qmFormState">
-      <div class="qmodal-header"><div class="qmodal-icon">📋</div><div><div class="qmodal-title">Request a Quote</div><div class="qmodal-prod-name" id="qmProductName"></div></div></div>
+      <div class="qmodal-header"><div class="qmodal-icon"><i data-lucide="file-text" style="width:20px;height:20px;"></i></div><div><div class="qmodal-title">Request a Quote</div><div class="qmodal-prod-name" id="qmProductName"></div></div></div>
       <div class="qm-fg"><label>Your Name <span class="req">*</span></label><input type="text" id="qmName" placeholder="Rajesh Sharma" autocomplete="name"><div class="qm-err" id="qmErrName">Please enter your name.</div></div>
       <div class="qm-fg"><label>Mobile / WhatsApp <span class="req">*</span></label><div style="position:relative;"><span style="position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:13px;font-weight:700;color:#999;pointer-events:none;">+91</span><input type="tel" id="qmPhone" placeholder="98717 13676" inputmode="numeric" maxlength="10" style="padding-left:40px;" autocomplete="tel"></div><div class="qm-err" id="qmErrPhone">Enter valid 10-digit number starting with 6–9.</div><div class="qm-ok" id="qmOkPhone">✓ Valid number</div></div>
       <div class="qm-fg"><label>Company Name <span class="req">*</span></label><input type="text" id="qmCompany" placeholder="Your company" autocomplete="organization"><div class="qm-err" id="qmErrCompany">Please enter your company name.</div></div>
       <div class="qm-fg"><label>GST Number <span style="font-size:11px;color:#999;">(Optional)</span></label><input type="text" id="qmGst" placeholder="22AAAAA0000A1Z5" maxlength="15" style="text-transform:uppercase;"><div class="qm-err" id="qmErrGst">Invalid GST format</div><div class="qm-ok" id="qmOkGst">✓ Valid GST</div></div>
       <div class="qm-fg"><label>Message / Requirements</label><textarea id="qmMessage" placeholder="Quantity, size, material, deadline…" rows="2" style="resize:none;"></textarea></div>
-      <button class="qm-submit" type="button" onclick="submitQuoteModal()">📞 Submit Quote Request</button>
+      <button class="qm-submit" type="button" onclick="submitQuoteModal()"><i data-lucide="send" style="width:15px;height:15px;vertical-align:middle;margin-right:6px;"></i>Submit Quote Request</button>
       <p class="qm-privacy">We'll call you back within 2 hours. &nbsp;|&nbsp; <a href="privacy-policy.html" target="_blank">Privacy Policy</a></p>
       <div class="qm-wa-alt" id="qmWaAlt" style="display:none;"><div class="qm-wa-alt-label">Prefer WhatsApp instead?</div><a id="qmWaLink" href="#" target="_blank" class="qm-wa-direct"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Send via WhatsApp</a></div>
     </div>
     <div id="qmSuccessState" style="display:none;text-align:center;padding:32px 16px;">
-      <div style="font-size:48px;margin-bottom:14px;">✅</div>
+      <div style="font-size:48px;margin-bottom:14px;"><i data-lucide="check-circle-2" style="width:48px;height:48px;color:#25D366;"></i></div>
       <div style="font-size:18px;font-weight:900;color:#1a1a1a;margin-bottom:8px;">Quote Request Sent!</div>
       <div style="font-size:13.5px;color:#777;line-height:1.7;margin-bottom:24px;">Our packaging expert will call you within 2 hours with factory-direct pricing.</div>
       <a id="qmSuccessWa" href="#" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#25D366;color:#fff;padding:11px 22px;border-radius:4px;font-size:13.5px;font-weight:700;text-decoration:none;">Also WhatsApp Us</a>
@@ -1320,14 +1348,14 @@ function submitCat(e){
   var msg='Hello%2C+I+want+the+Solar+Print+catalogue.'+'%0AName:+'+encodeURIComponent(document.getElementById('catName').value.trim())+'%0ACompany:+'+encodeURIComponent(document.getElementById('catCompany').value)+'%0AIndustry:+'+encodeURIComponent(document.getElementById('catIndustry').value);
   SP.trackCatalogue(document.getElementById('catIndustry').value);
   window.open('https://wa.me/919871713676?text='+msg,'_blank');
-  showToast('📲 Catalogue request sent!');
+  showToast('Catalogue request sent!');
   document.getElementById('catForm').reset();
 }
 
 var eiShown=false;
 document.addEventListener('mouseleave',function(e){ if(e.clientY<5&&!eiShown&&!sessionStorage.getItem('ei_done')){ eiShown=true; document.getElementById('eiOverlay').classList.add('open'); SP.trackExitIntent('shown'); } });
 function closeEI(){ document.getElementById('eiOverlay').classList.remove('open'); sessionStorage.setItem('ei_done','1'); }
-function submitEI(e){ e.preventDefault(); var n=document.getElementById('eiName').value.trim(); var p=document.getElementById('eiPhone').value.trim().replace(/\D/g,''); if(!n||p.length<10){alert('Please enter valid name and phone.');return;} var msg='Hello%2C+I+was+about+to+leave+but+wanted+a+quick+quote.'+'%0AName:+'+encodeURIComponent(n)+'%0APhone:+%2B91+'+encodeURIComponent(p); SP.trackWhatsApp('exit_intent_popup'); window.open('https://wa.me/919871713676?text='+msg,'_blank'); closeEI(); showToast('✅ Thank you! We\'ll call you shortly.'); }
+function submitEI(e){ e.preventDefault(); var n=document.getElementById('eiName').value.trim(); var p=document.getElementById('eiPhone').value.trim().replace(/\D/g,''); if(!n||p.length<10){alert('Please enter valid name and phone.');return;} var msg='Hello%2C+I+was+about+to+leave+but+wanted+a+quick+quote.'+'%0AName:+'+encodeURIComponent(n)+'%0APhone:+%2B91+'+encodeURIComponent(p); SP.trackWhatsApp('exit_intent_popup'); window.open('https://wa.me/919871713676?text='+msg,'_blank'); closeEI(); showToast('Thank you! We\'ll call you shortly.'); }
 document.getElementById('eiOverlay').addEventListener('click',function(e){if(e.target===this)closeEI();});
 
 var PROD_DATA=[
@@ -1574,6 +1602,10 @@ function showToast(msg){
   t.textContent=msg; t.classList.add('show');
   setTimeout(function(){t.classList.remove('show');},3500);
 }
+</script>
+<script>
+if(typeof lucide !== 'undefined') lucide.createIcons();
+document.addEventListener('DOMContentLoaded', function(){ if(typeof lucide !== 'undefined') lucide.createIcons(); });
 </script>
 </body>
 </html>
