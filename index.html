@@ -8,7 +8,7 @@
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M64D344S');</script>
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,9 +25,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'AW-CONVERSION_ID');
+gtag('config', 'AW-17432835646');
 window.SP = {
-  LABELS: { call:'AW-CONVERSION_ID/LABEL_CALL', whatsapp:'AW-CONVERSION_ID/LABEL_WHATSAPP', form_lead:'AW-CONVERSION_ID/LABEL_FORM_LEAD', catalogue:'AW-CONVERSION_ID/LABEL_CATALOGUE', product_view:'AW-CONVERSION_ID/LABEL_PRODUCT', quote_modal:'AW-CONVERSION_ID/LABEL_QUOTE_MODAL', exit_intent:'AW-CONVERSION_ID/LABEL_WHATSAPP' },
+  LABELS: { call:'AW-17432835646/LABEL_CALL', whatsapp:'AW-17432835646/LABEL_WHATSAPP', form_lead:'AW-17432835646/BpEvCOXA9o0cEL7sz_hA', catalogue:'AW-17432835646/LABEL_CATALOGUE', product_view:'AW-17432835646/LABEL_PRODUCT', quote_modal:'AW-17432835646/BpEvCOXA9o0cEL7sz_hA', exit_intent:'AW-17432835646/LABEL_WHATSAPP' },
   convert: function(labelKey, value) { var label = SP.LABELS[labelKey]; if(!label || label.indexOf('LABEL_') > -1) return; gtag('event', 'conversion', { send_to: label, value: value || 1.0, currency: 'INR' }); },
   event: function(eventName, params) { gtag('event', eventName, params || {}); },
   trackCall: function(location) { SP.convert('call', 1.0); SP.event('generate_lead', { event_category: 'Contact', event_label: 'Phone Call — ' + (location || 'Unknown'), currency: 'INR' }); SP.event('phone_call_click', { location: location }); },
@@ -471,7 +471,7 @@ body{padding-bottom:66px;}
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M64D344S"
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
@@ -501,7 +501,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <span class="sep">|</span>
   <span>Call: <a href="tel:+919871713676" onclick="SP.trackCall('topbar')"><strong>+91 98717 13676</strong></a></span>
   <span class="sep">|</span>
-  <a href="/cdn-cgi/l/email-protection#f49d9a929bb4879b98958684869d9a80da979b99"><span class="__cf_email__" data-cfemail="1f767179705f6c70737e6d6f6d76716b317c7072">[email&#160;protected]</span></a>
+  <a href="/cdn-cgi/l/email-protection#b7ded9d1d8f7c4d8dbd6c5c7c5ded9c399d4d8da"><span class="__cf_email__" data-cfemail="7d14131b123d0e12111c0f0d0f141309531e1210">[email&#160;protected]</span></a>
   <span class="sep">|</span>
   <span class="reply-live"><span class="reply-dot"></span>Instant WhatsApp Reply</span>
 </div>
@@ -582,7 +582,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-right">
       <div class="hero-form-card" id="heroForm">
         <div class="hfc-title">Get Factory-Direct Pricing</div>
-        <div class="hfc-sub">Tell us what you need — our expert calls back in 2 hours with factory pricing. Min. order 300 pcs.</div>
+        <div class="hfc-sub">No middlemen. Quote in 2 hours. Free samples on first order.</div>
         <div class="step-dots"><div class="step-dot active" id="dot1"></div><div class="step-dot" id="dot2"></div></div>
         <div class="form-step active" id="fStep1">
           <div class="fg">
@@ -605,34 +605,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="field-err" id="errCompany">Please enter your company name.</div>
           </div>
           <div class="fg">
-            <label for="fIndustry">Industry / Product Type <span style="color:#e53e3e">*</span></label>
-            <select id="fIndustry" style="width:100%;padding:11px 14px;border:1.5px solid var(--border2);border-radius:var(--r);font-size:14px;font-family:'Roboto',sans-serif;color:var(--ink);background:#fff;outline:none;cursor:pointer;">
-              <option value="">Select your industry…</option>
-              <option value="FMCG / Consumer Goods">FMCG / Consumer Goods</option>
-              <option value="Cosmetics & Beauty">Cosmetics &amp; Beauty</option>
-              <option value="Pharma & Healthcare">Pharma &amp; Healthcare</option>
-              <option value="Food & Beverage">Food &amp; Beverage</option>
-              <option value="Spirits & Liquor">Spirits &amp; Liquor</option>
-              <option value="Ecommerce / D2C">Ecommerce / D2C</option>
-              <option value="Jewellery & Watches">Jewellery &amp; Watches</option>
-              <option value="Corporate Gifting">Corporate Gifting</option>
-              <option value="Electronics">Electronics</option>
-              <option value="Apparel & Fashion">Apparel &amp; Fashion</option>
-              <option value="Other">Other</option>
-            </select>
-            <div class="field-err" id="errIndustry">Please select your industry.</div>
-          </div>
-          <div class="fg">
-            <label for="fMoq">Approximate Quantity <span style="color:#e53e3e">*</span></label>
-            <select id="fMoq" style="width:100%;padding:11px 14px;border:1.5px solid var(--border2);border-radius:var(--r);font-size:14px;font-family:'Roboto',sans-serif;color:var(--ink);background:#fff;outline:none;cursor:pointer;">
-              <option value="">Select quantity…</option>
-              <option value="300–500 pieces">300 – 500 pieces (Minimum)</option>
-              <option value="500–1,000 pieces">500 – 1,000 pieces</option>
-              <option value="1,000–5,000 pieces">1,000 – 5,000 pieces</option>
-              <option value="5,000–25,000 pieces">5,000 – 25,000 pieces</option>
-              <option value="25,000+ pieces">25,000+ pieces</option>
-            </select>
-            <div class="field-err" id="errMoq">Please select a quantity.</div>
+            <label for="fGst">GST Number <span style="font-size:11px;font-weight:500;color:var(--t3);margin-left:4px;">(Optional)</span></label>
+            <input type="text" id="fGst" placeholder="22AAAAA0000A1Z5" autocomplete="off" maxlength="15" style="text-transform:uppercase;">
+            <div class="field-err" id="errGst">GST format: 22AAAAA0000A1Z5 (15 characters)</div>
+            <div class="field-ok" id="okGst">✓ Valid GST number</div>
           </div>
           <button class="btn-cta-hero" type="button" onclick="submitHeroForm()">📞 Get My Factory Price in 2 Hours</button>
           <p class="form-privacy">By submitting, you agree to our <a href="privacy-policy.html" target="_blank">Privacy Policy</a> &amp; <a href="terms.html" target="_blank">Terms</a>.</p>
@@ -1004,7 +980,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         WhatsApp Us Now
       </a>
     </div>
-    <div class="btm-note">C-10, Sector 85, Noida UP 201305 &nbsp;·&nbsp; +91 98717 13676 &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1970777f76596a7675786b696b70776d377a7674">[email&#160;protected]</a></div>
+    <div class="btm-note">C-10, Sector 85, Noida UP 201305 &nbsp;·&nbsp; +91 98717 13676 &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="94fdfaf2fbd4e7fbf8f5e6e4e6fdfae0baf7fbf9">[email&#160;protected]</a></div>
   </div>
 </div>
 
@@ -1017,7 +993,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="f-brand-sub">Established 1975. Direct packaging manufacturer in Noida. 200,000 sq ft in-house facility. Serving 16+ industries pan-India.</div>
         <div class="f-links">
           <a href="tel:+919871713676">📞 +91 98717 13676</a>
-          <a href="/cdn-cgi/l/email-protection#6e070008012e1d01020f1c1e1c07001a400d0103">✉ <span class="__cf_email__" data-cfemail="90f9fef6ffd0e3fffcf1e2e0e2f9fee4bef3fffd">[email&#160;protected]</span></a>
+          <a href="/cdn-cgi/l/email-protection#81e8efe7eec1f2eeede0f3f1f3e8eff5afe2eeec">✉ <span class="__cf_email__" data-cfemail="8ee7e0e8e1cefde1e2effcfefce7e0faa0ede1e3">[email&#160;protected]</span></a>
           <a href="https://wa.me/919871713676?text=Hello%2C+I+need+a+packaging+quote" target="_blank" rel="noopener" style="color:#4ade80;font-weight:700;">💬 WhatsApp for Quote</a>
         </div>
       </div>
@@ -1314,36 +1290,23 @@ phoneInput.addEventListener('input',function(){ this.value=this.value.replace(/\
 phoneInput.addEventListener('blur',function(){ validatePhone(true); });
 function validatePhone(showErr){ var v=phoneInput.value.replace(/\D/g,''); var ok=(v.length===10&&/^[6-9]/.test(v)); phoneInput.classList.toggle('is-valid',ok); phoneInput.classList.toggle('is-invalid',!ok&&showErr&&v.length>0); document.getElementById('errPhone').style.display=(!ok&&showErr&&v.length>0)?'block':'none'; document.getElementById('okPhone').style.display=ok?'block':'none'; return ok; }
 
-// GST field replaced with Industry + MOQ dropdowns
+var gstInput=document.getElementById('fGst');
+var GST_RE=/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/;
+gstInput.addEventListener('input',function(){ this.value=this.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,15); if(this.value.length>0) validateGst(false); });
+gstInput.addEventListener('blur',function(){ validateGst(true); });
+function validateGst(showErr){ var v=gstInput.value.trim(); if(!v){ gstInput.classList.remove('is-valid','is-invalid'); document.getElementById('errGst').style.display='none'; document.getElementById('okGst').style.display='none'; return true; } var ok=GST_RE.test(v); gstInput.classList.toggle('is-valid',ok); gstInput.classList.toggle('is-invalid',!ok&&showErr); document.getElementById('errGst').style.display=(!ok&&showErr)?'block':'none'; document.getElementById('okGst').style.display=ok?'block':'none'; return ok; }
 
 function submitHeroForm(){
-  var name=document.getElementById('fName'); var phone=document.getElementById('fPhone'); var company=document.getElementById('fCompany'); var industry=document.getElementById('fIndustry'); var moq=document.getElementById('fMoq'); var ok=true;
+  var name=document.getElementById('fName'); var phone=document.getElementById('fPhone'); var company=document.getElementById('fCompany'); var gst=document.getElementById('fGst'); var ok=true;
   if(!name.value.trim()||name.value.trim().length<2){ name.classList.add('is-invalid'); name.classList.remove('is-valid'); document.getElementById('errName').style.display='block'; triggerShake(name); ok=false; } else { name.classList.remove('is-invalid'); name.classList.add('is-valid'); document.getElementById('errName').style.display='none'; }
   if(!validatePhone(true)){ triggerShake(phone); ok=false; }
   if(!company.value.trim()){ company.classList.add('is-invalid'); company.classList.remove('is-valid'); document.getElementById('errCompany').style.display='block'; triggerShake(company); ok=false; } else { company.classList.remove('is-invalid'); company.classList.add('is-valid'); document.getElementById('errCompany').style.display='none'; }
-  // Validate Industry
-  if(!industry.value){
-    industry.style.borderColor='#e53e3e';
-    document.getElementById('errIndustry').style.display='block';
-    triggerShake(industry); ok=false;
-  } else {
-    industry.style.borderColor='#16a34a';
-    document.getElementById('errIndustry').style.display='none';
-  }
-  // Validate MOQ
-  if(!moq.value){
-    moq.style.borderColor='#e53e3e';
-    document.getElementById('errMoq').style.display='block';
-    triggerShake(moq); ok=false;
-  } else {
-    moq.style.borderColor='#16a34a';
-    document.getElementById('errMoq').style.display='none';
-  }
+  if(gst.value.trim()&&!validateGst(true)){ triggerShake(gst); ok=false; }
   if(!ok){ var first=document.querySelector('.fg input.is-invalid'); if(first) first.scrollIntoView({behavior:'smooth',block:'center'}); return; }
   var gstPart=gst.value.trim()?('%0AGST+No:+'+encodeURIComponent(gst.value.trim())):'';
   var msg='Hello%2C+I+need+a+packaging+quote.'+'%0AName:+'+encodeURIComponent(name.value.trim())+'%0ACompany:+'+encodeURIComponent(company.value.trim())+'%0APhone:+%2B91+'+encodeURIComponent(phone.value.trim())+gstPart;
   SP.trackFormLead('General',company.value.trim());
-  var lead={id:Date.now(),ts:new Date().toLocaleString('en-IN'),name:name.value.trim(),phone:phone.value.trim(),company:company.value.trim(),gst:industry.value+' | Qty: '+moq.value,source:'Hero Form',page:window.location.href};
+  var lead={id:Date.now(),ts:new Date().toLocaleString('en-IN'),name:name.value.trim(),phone:phone.value.trim(),company:company.value.trim(),gst:gst.value.trim(),source:'Hero Form',page:window.location.href};
   try{ var leads=JSON.parse(localStorage.getItem('sp_leads')||'[]'); leads.unshift(lead); localStorage.setItem('sp_leads',JSON.stringify(leads.slice(0,500))); }catch(e){}
   sendToGoogleSheets(lead);
   window.location.href='thank-you.html?wa='+encodeURIComponent('https://wa.me/919871713676?text='+msg);
